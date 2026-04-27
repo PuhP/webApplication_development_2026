@@ -1,0 +1,104 @@
+\section*{Глава 2. Проектирование веб-приложения}
+\addcontentsline{toc}{section}{Глава 2. Проектирование веб-приложения}
+\stepcounter{section}
+
+
+\subsection{Анализ целевой аудитории}
+
+Основными пользователями разрабатываемой системы являются сотрудники логистических
+компаний. Выделяются две ключевые роли:
+
+\begin{itemize}
+	\item \textbf{Диспетчер-логист} --- сотрудник, ответственный за распределение
+	      заказов и контроль их выполнения в реальном времени.
+	\item \textbf{Курьер} --- конечный исполнитель, использующий мобильную
+	      версию приложения для навигации по маршруту.
+\end{itemize}
+
+Для каждой роли проведено профилирование по методу персонажей (Personas) для
+минимизации когнитивной нагрузки на интерфейс.
+
+\subsection{Описание функциональности приложения}
+
+Функциональные возможности системы определяются через взаимодействие пользователя
+с системой. Основной бизнес-кейс представлен в виде \textit{User Story}: «Я, как
+диспетчер, хочу импортировать список адресов, чтобы система автоматически построила
+кратчайший маршрут для 5 курьеров».
+
+На рисунке~\ref{fig:use_case} представлена диаграмма вариантов использования
+(Use Case).
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{use_case_diagram}
+	\caption{Диаграмма вариантов использования системы}
+	\label{fig:use_case}
+\end{figure}
+
+\subsection{Проектирование модели данных}
+
+При выборе архитектуры базы данных был проведен сравнительный анализ эффективности
+различных решений, опирающийся на данные о производительности современных
+СУБД~\cite{petrov2024}.
+
+Структура таблицы заказов представлена в табл.~\ref{tab:db_orders}.
+
+\begin{longtable}{|l|l|p{3.5cm}|p{5.5cm}|}
+	\caption{Структура таблицы заказов (\texttt{orders})} \label{tab:db_orders}                \\
+
+	\hline
+	\textbf{Поле}  & \textbf{Тип} & \textbf{Ограничение} & \textbf{Описание}                   \\ \hline
+	\endfirsthead % Заголовок на первой странице
+
+	\tabcont{\ref{tab:db_orders}} % команда для надписи "Продолжение таблицы"
+	\textbf{Поле}  & \textbf{Тип} & \textbf{Ограничение} & \textbf{Описание}                   \\ \hline
+	\endhead % Заголовок на всех последующих страницах
+
+	\hline
+	\endfoot % Линия внизу страницы (кроме последней)
+
+	\hline
+	\endlastfoot % Линия в самом конце таблицы
+
+	id             & UUID         & PRIMARY KEY          & Уникальный идентификатор заказа     \\ \hline
+	customer\_id   & UUID         & FOREIGN KEY          & Ссылка на таблицу клиентов          \\ \hline
+	address        & TEXT         & NOT NULL             & Полный адрес доставки               \\ \hline
+	lat            & NUMERIC      & NOT NULL             & Широта точки (WGS-84)               \\ \hline
+	lng            & NUMERIC      & NOT NULL             & Долгота точки (WGS-84)              \\ \hline
+	weight         & FLOAT        & CHECK > 0            & Вес груза, кг                       \\ \hline
+	volume         & FLOAT        & NOT NULL             & Объем груза, м$^3$                  \\ \hline
+	time\_from     & TIME         & NOT NULL             & Начало окна доставки                \\ \hline
+	time\_to       & TIME         & NOT NULL             & Конец окна доставки                 \\ \hline
+	priority       & INT          & DEFAULT 1            & Приоритет (1--5)                    \\ \hline
+	status         & VARCHAR      & 'pending'            & Статус (ожидание, в пути, выполнен) \\ \hline
+	courier\_id    & UUID         & NULL                 & Назначенный исполнитель             \\ \hline
+	created\_at    & TIMESTAMP    & DEFAULT NOW()        & Время создания записи               \\ \hline
+	updated\_at    & TIMESTAMP    & DEFAULT NOW()        & Время последнего изменения          \\ \hline
+	is\_fragile    & BOOLEAN      & FALSE                & Хрупкий груз                        \\ \hline
+	contact\_phone & VARCHAR      & NOT NULL             & Телефон получателя                  \\ \hline
+	price          & MONEY        & NOT NULL             & Стоимость доставки                  \\ \hline
+	external\_id   & VARCHAR      & UNIQUE               & ID из внешней системы (1C/ERP)      \\ \hline
+	notes          & TEXT         & NULL                 & Комментарий для курьера             \\ \hline
+	attempts       & INT          & DEFAULT 0            & Количество попыток доставки         \\ \hline
+\end{longtable}
+
+
+Общая стоимость маршрута для службы доставки рассчитывается следующим образом:
+
+\begin{equation}
+	C_{total} = \sum_{i=1}^{n} (L_i \cdot P_{fuel} + T_i \cdot W_{hour}) + S_{fixed},
+	\label{eq:total_cost}
+\end{equation}
+
+\begin{where}
+	\item $L_i$~--- протяженность $i$-го участка маршрута, км;
+	\item $P_{fuel}$~--- стоимость топлива на 1 км пути;
+	\item $T_i$~--- время в пути на участке;
+	\item $W_{hour}$~--- почасовая ставка оплаты труда курьера;
+	\item $S_{fixed}$~--- постоянные издержки на обслуживание автопарка.
+\end{where}
+
+
+\subsection{Разработка макетов страниц}
+
+*Макеты страниц*

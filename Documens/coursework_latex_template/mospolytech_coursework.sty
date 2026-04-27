@@ -1,0 +1,249 @@
+\ProvidesPackage{mospolytech_coursework}
+
+% --- Базовые пакеты для русского языка и шрифта ---
+
+\RequirePackage[T2A]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[russian]{babel}
+\RequirePackage{tempora} % Аналог Times New Roman
+\RequirePackage{pdfpages}
+\RequirePackage{cite}
+\RequirePackage{microtype}
+
+% --- Настройка полей ---
+
+\RequirePackage[left=30mm, right=15mm, top=20mm, bottom=20mm, footskip=12mm]{geometry}
+
+% --- Интервалы и абзацы ---
+
+\RequirePackage{setspace}
+\onehalfspacing % Интервал 1.5
+
+\RequirePackage{indentfirst} % Отступ первого абзаца
+\setlength{\parindent}{1.25cm} % Абзацный отступ 1.25 см
+
+\RequirePackage[hang]{footmisc} % Позволяет настраивать отступы
+\RequirePackage{perpage}       % Для постраничной нумерации
+\MakePerPage{footnote}     % Сбрасывать счетчик сносок на каждой странице
+
+% --- ГИПЕРССЫЛКИ И ОГЛАВЛЕНИЕ ---
+
+\RequirePackage[hidelinks, unicode, psdextra]{hyperref} % Кликабельное оглавление (без рамок)
+\urlstyle{same} % Ссылки тем же шрифтом, что и текст
+
+% --- НАСТРОЙКА ЗАГОЛОВКОВ ---
+
+\RequirePackage{titlesec}
+
+% Команда для запрета переносов в заголовках
+\newcommand{\nohyphens}{\hyphenpenalty=10000\exhyphenpenalty=10000\sloppy}
+
+% Расстояние от текста до заголовка 12pt, от заголовка до текста 6pt
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{12pt}{6pt}
+
+% Заголовки структурных элементов (section)
+\titleformat{name=\section}
+{\newpage\nohyphens\normalfont\bfseries\filcenter}
+{}
+{0pt}
+{\MakeUppercase}
+
+\makeatletter
+% Перехватываем команду записи в файл .toc
+\let\oldaddcontentsline\addcontentsline
+\renewcommand{\addcontentsline}[3]{%
+	\ifstrequal{#2}{section}
+	{\oldaddcontentsline{#1}{#2}{\texorpdfstring{\MakeUppercase{#3}}{#3}}}
+	{\oldaddcontentsline{#1}{#2}{#3}}
+}
+\makeatother
+
+% Заголовки разелов
+\titleformat{\subsection}
+{\nohyphens\normalfont\bfseries}
+{\hspace{1.25cm}\thesubsection}
+{1em}
+{}
+
+% --- Настройка сносок ---
+
+% Настройка знака сноски: надстрочная цифра со скобкой "(1)"
+\renewcommand*{\thefootnote}{(\arabic{footnote})}
+
+% Шрифт в сносках
+\renewcommand{\footnotelayout}{\fontsize{12pt}{14pt}\selectfont}
+
+% Полное переопределение вывода сноски для абзацного отступа
+\makeatletter
+\renewcommand{\@makefntext}[1]{%
+	\noindent\hspace{1.25cm} % Отступ 1.25 см
+	\@thefnmark~#1           % Номер сноски и текст через неразрывный пробел
+}
+\makeatother
+
+% --- ГРАФИКА, РИСУНКИ И ТАБЛИЦЫ ---
+
+\RequirePackage{graphicx}
+\RequirePackage{caption}
+\RequirePackage{chngcntr}
+\RequirePackage{etoolbox}  % Для настройки окружений
+
+\RequirePackage{array, booktabs, multirow, tabularx}
+\RequirePackage{longtable} % Для многостраничных таблиц
+\RequirePackage{pdflscape} % Для альбомных страниц (поворачивает страницу в PDF)
+
+\graphicspath{{images/}} % Папка для картинок
+
+% Нумерация в рамках раздела
+\counterwithin{figure}{section} % рисунки
+\counterwithin{table}{section} % таблицы
+
+% Общая разделительная линия (тире)
+\DeclareCaptionLabelSeparator{emdash}{ --- }
+
+% Настройка подписей к рисункам (подпись снизу, по центру)
+\captionsetup[figure]{
+	labelsep=endash,
+	justification=centering,
+	singlelinecheck=false,
+	position=bottom,
+	skip=6pt,          % Отступ от рисунка до подписи
+	font={normalfont},
+	name={Рисунок}
+}
+
+% Настройка подписей к таблицам (подпись сверху, слева)
+\captionsetup[table]{
+	labelsep=endash,
+	justification=raggedright,
+	singlelinecheck=false,
+	position=top,
+	skip=6pt,         % Отступ от подписи до таблицы
+	font={normalfont},
+	name={Таблица}
+}
+
+%Настройка подписи для longtable (как у обычных таблиц)
+\captionsetup[longtable]{
+	labelsep=endash,
+	justification=raggedright,
+	singlelinecheck=false,
+	position=top,
+	font={normalfont},
+	skip=6pt % Расстояние от названия до самой таблицы
+}
+
+% Отступы от текста до объектов (сверху и снизу)
+\setlength{\intextsep}{12pt} % объект вставлен в место вызова ([h])
+\setlength{\textfloatsep}{12pt} % объект "уплыл" вверх ([t]) или вниз ([b])
+
+\AtBeginEnvironment{figure}{\addtolength{\belowcaptionskip}{-6pt}}
+\AtBeginEnvironment{table}{\addtolength{\belowcaptionskip}{-6pt}}
+
+\setlength{\LTpre}{12pt}  % Отступ перед longtable
+\setlength{\LTpost}{6pt}  % Отступ после longtable
+
+% Настройка шрифта и интервала внутри таблиц
+\AtBeginEnvironment{longtable}{\onehalfspacing\renewcommand{\arraystretch}{1.2}}
+\AtBeginEnvironment{table}{\onehalfspacing\renewcommand{\arraystretch}{1.2}}
+
+% Команда для надписи "Продолжение таблицы"
+\makeatletter
+\newcommand{\tabcont}[1]{%
+	\multicolumn{\LT@cols}{l}{\normalsize Продолжение таблицы #1} \\[6pt] \hline
+}
+\makeatother
+
+% --- МАТЕМАТИКА И ФОРМУЛЫ ---
+
+\RequirePackage{amsmath, amsfonts, amssymb}
+\RequirePackage{mathtools} % Улучшенный amsmath
+\RequirePackage{icomma} % Правильные пробелы в десятичных дробях
+
+% Отступы вокруг формул (не менее одной свободной строки)
+\setlength{\abovedisplayskip}{18pt}
+\setlength{\belowdisplayskip}{18pt}
+\setlength{\abovedisplayshortskip}{12pt}
+\setlength{\belowdisplayshortskip}{12pt}
+
+% Настройка списка "где"
+\RequirePackage{enumitem}
+\newenvironment{where}
+{\par\vspace{6pt}\noindent\hspace{1.25cm}где \begin{itemize}[
+			nosep,
+			leftmargin=1.25cm,
+			label={},
+			itemindent=0pt,
+			listparindent=0pt
+		]}
+		{\end{itemize}\vspace{6pt}}
+
+% --- НАСТРОЙКА ЛИСТИНГОВ (КОДА) ---
+
+\RequirePackage{listings}
+\RequirePackage{xcolor}
+
+% Настройка шрифта для кода (12pt, моноширинный)
+% Если Lucida Sans Typewriter не установлена в системе, 
+% используем стандартный качественный моноширинный шрифт:
+\newcommand{\listingfont}{\fontsize{12pt}{14pt}\selectfont\ttfamily}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.97,0.97,0.97} % Чуть светлее, чтобы не было грязно при печати
+
+\lstset{
+	% --- Нумерация строк ---
+	numbers=left,           % Позиция номеров (слева)
+	numberstyle=\footnotesize\color{gray}, % Размер и цвет номера
+	stepnumber=1,           % Нумеровать каждую строку
+	numbersep=8pt,          % Расстояние от номера до поля с кодом
+	firstnumber=1,          % Начинать нумерацию с 1
+	numberfirstline=true,   % Всегда нумеровать первую строку
+	xleftmargin=2em,
+	framexleftmargin=1.5em,
+	% --- Шрифт и интервалы ---
+	% 12pt, моноширинный, межстрочный интервал "впритык"
+	basicstyle=\fontsize{12pt}{13pt}\selectfont\ttfamily,
+	lineskip=0pt,           % Одинарный интервал внутри кода
+	aboveskip=12pt,         % Расстояние от текста до листинга
+	belowskip=6pt,          % Расстояние после листинга
+	% --- Цвета и подсветка ---
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue}\bfseries, % Синие жирные ключевые слова
+	stringstyle=\color{codepurple},
+	% --- Оформление и рамки ---
+	frame=single,           % Рамка вокруг кода
+	rulecolor=\color{black},
+	captionpos=t,           % Подпись сверху (top)
+	% --- Поведение текста ---
+	extendedchars=\true,    % Для поддержки кирилицы
+	breaklines=true,        % Перенос длинных строк
+	keepspaces=true,        % Сохранять пробелы
+	showstringspaces=false, % Не показывать пробелы в строках спецсимволами
+	tabsize=4               % Размер табуляции
+}
+
+\captionsetup[lstlisting]{
+	format=plain,
+	labelsep=endash,       % Тире вместо двоеточия
+	justification=raggedright,
+	singlelinecheck=false,
+	font={normalfont},
+	position=top,          % Подпись сверху
+	skip=6pt               % Отступ до кода
+}
+
+% --- ПРИЛОЖЕНИЯ ---
+
+% Команда для перехода к приложениям
+\newcommand{\startappendix}{%
+	\newpage
+	\appendix % Переключает нумерацию разделов на заглавные буквы (А, Б, В...)
+
+	\renewcommand{\thesection}{\Alph{section}}
+
+}
+

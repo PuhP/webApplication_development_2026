@@ -1,0 +1,25 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\MakeUppercase []{Введение}}{5}{Doc-Start}%
+\contentsline {section}{\MakeUppercase []{Глава 1. Анализ предметной области}}{7}{Doc-Start}%
+\contentsline {subsection}{\numberline {1.1}Анализ существующих инструментов и алгоритмов организации учебных очередей}{7}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Анализ существующих алгоритмов организации учебных очередей и обоснование эффективности разработки}{7}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Анализ существующих инструментов организации учебных очередей и обоснование эффективности разработки}{8}{subsubsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.2}Обоснование выбора стека технологий}{10}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Выбор клиентских технологий}{10}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Выбор серверных технологий и СУБД}{11}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Научная новизна и практическая значимость}{13}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Описание архитектурных решений и требований к БД}{13}{subsubsection.1.2.4}%
+\contentsline {section}{\MakeUppercase []{Глава 2. Проектирование веб-приложения}}{15}{Item.3}%
+\contentsline {subsection}{\numberline {2.1}Анализ целевой аудитории}{15}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Описание функциональности приложения}{15}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Проектирование модели данных}{15}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Разработка макетов страниц}{17}{subsection.2.4}%
+\contentsline {section}{\MakeUppercase []{Глава 3. Разработка веб-приложения}}{18}{subsection.2.4}%
+\contentsline {subsection}{\numberline {3.1}Разработка базовой структуры приложения и вёрстка}{18}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Реализация модуля авторизации}{18}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Интеграция картографических сервисов}{18}{subsection.3.3}%
+\contentsline {section}{\MakeUppercase []{Заключение}}{20}{lstnumber.2.9}%
+\babel@toc {russian}{}\relax 
+\babel@toc {russian}{}\relax 
+\babel@toc {russian}{}\relax 
+\babel@toc {russian}{}\relax 

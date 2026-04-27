@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.29)  27 APR 2026 01:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.29)  27 APR 2026 10:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1861,13 +1861,13 @@ Package: listings 2025/11/14 1.11b (Carsten Heinz)
     so I'm assuming it got fixed.
 )
 LaTeX Font Info:    Trying to load font information for T1+Tempora-TLF on input
- line 14.
+ line 13.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/tempora/T1Tempora-TLF.fd
 File: T1Tempora-TLF.fd 2016/02/02 (autoinst) Font definitions for T1/Tempora-TL
 F.
 )
 LaTeX Font Info:    Font shape `T1/Tempora-TLF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 14.
+(Font)              scaled to size 14.4pt on input line 13.
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
@@ -1885,63 +1885,62 @@ LaTeX Font Info:    Font shape `T2A/Tempora-TLF/m/n' will be
 Package babel Info: 'russian' activates 'russian' shorthands.
 (babel)             Reported on input line 9.
 
-(./intro.aux) (./chapter1.aux) (./chapter2.aux) (./chapter3.aux)
-(./conclusion.aux))
+(./intro.aux) (./chapter1.aux))
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT2/cmr/m/n on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT2/cmr/m/n on input line 13.
 LaTeX Font Info:    Trying to load font information for OT2+cmr on input line 1
-4.
+3.
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/cyrillic/ot2cmr.fd
 File: ot2cmr.fd 2001/08/11 v3.2c Computer Modern Cyrillic font definitions
 )
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T2C/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T2C/cmr/m/n on input line 13.
 LaTeX Font Info:    Trying to load font information for T2C+cmr on input line 1
-4.
+3.
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/cyrillic/t2ccmr.fd
 File: t2ccmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T2B/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T2B/cmr/m/n on input line 13.
 LaTeX Font Info:    Trying to load font information for T2B+cmr on input line 1
-4.
+3.
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/cyrillic/t2bcmr.fd
 File: t2bcmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 13.
 LaTeX Font Info:    Trying to load font information for LGR+cmr on input line 1
-4.
+3.
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Info: Redefining \th on input line 14.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Info: Redefining \th on input line 13.
 \c@mv@tabular=\count348
 \c@mv@boldtabular=\count349
 
@@ -1967,13 +1966,13 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \microtypecontext on input line 14.
-Package microtype Info: Applying patch `item' on input line 14.
-Package microtype Info: Applying patch `toc' on input line 14.
-Package microtype Info: Applying patch `eqnum' on input line 14.
-Package microtype Info: Applying patch `footnote' on input line 14.
-Package microtype Info: Applying patch `verbatim' on input line 14.
-LaTeX Info: Redefining \microtypesetup on input line 14.
+LaTeX Info: Redefining \microtypecontext on input line 13.
+Package microtype Info: Applying patch `item' on input line 13.
+Package microtype Info: Applying patch `toc' on input line 13.
+Package microtype Info: Applying patch `eqnum' on input line 13.
+Package microtype Info: Applying patch `footnote' on input line 13.
+Package microtype Info: Applying patch `verbatim' on input line 13.
+LaTeX Info: Redefining \microtypesetup on input line 13.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -2027,7 +2026,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 14.
+Package hyperref Info: Link coloring OFF on input line 13.
 (./paper.out) (./paper.out)
 \@outlinefile=\write3
 \openout3 = `paper.out'.
@@ -2084,58 +2083,74 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 {/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2026/texmf-dist/fonts/enc/dvips/tempora/t2a-tempora.enc}])
-<task.pdf, id=88, 597.50829pt x 845.0471pt>
+<task.pdf, id=49, 597.50829pt x 845.0471pt>
 File: task.pdf Graphic file (type pdf)
 <use task.pdf>
-Package pdftex.def Info: task.pdf  used on input line 20.
+Package pdftex.def Info: task.pdf  used on input line 19.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
-<task.pdf, id=90, page=1, 597.50829pt x 845.0471pt>
+<task.pdf, id=51, page=1, 597.50829pt x 845.0471pt>
 File: task.pdf Graphic file (type pdf)
 <use task.pdf, page 1>
-Package pdftex.def Info: task.pdf , page1 used on input line 20.
+Package pdftex.def Info: task.pdf , page1 used on input line 19.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 File: task.pdf Graphic file (type pdf)
 <use task.pdf, page 1>
-Package pdftex.def Info: task.pdf , page1 used on input line 20.
+Package pdftex.def Info: task.pdf , page1 used on input line 19.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: task.pdf Graphic file (type pdf)
 <use task.pdf, page 1>
-Package pdftex.def Info: task.pdf , page1 used on input line 20.
+Package pdftex.def Info: task.pdf , page1 used on input line 19.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: task.pdf Graphic file (type pdf)
 <use task.pdf, page 1>
-Package pdftex.def Info: task.pdf , page1 used on input line 20.
+Package pdftex.def Info: task.pdf , page1 used on input line 19.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: task.pdf Graphic file (type pdf)
 <use task.pdf, page 1>
-Package pdftex.def Info: task.pdf , page1 used on input line 20.
+Package pdftex.def Info: task.pdf , page1 used on input line 19.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
  [2
 
 
 
  <./task.pdf>]
-<task.pdf, id=108, page=2, 597.50829pt x 845.0471pt>
+<task.pdf, id=69, page=2, 597.50829pt x 845.0471pt>
 File: task.pdf Graphic file (type pdf)
 <use task.pdf, page 2>
-Package pdftex.def Info: task.pdf , page2 used on input line 20.
+Package pdftex.def Info: task.pdf , page2 used on input line 19.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: task.pdf Graphic file (type pdf)
 <use task.pdf, page 2>
-Package pdftex.def Info: task.pdf , page2 used on input line 20.
+Package pdftex.def Info: task.pdf , page2 used on input line 19.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: task.pdf Graphic file (type pdf)
 <use task.pdf, page 2>
-Package pdftex.def Info: task.pdf , page2 used on input line 20.
+Package pdftex.def Info: task.pdf , page2 used on input line 19.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 
 [3
+
+ <./task.pdf>]
+<task.pdf, id=74, page=3, 597.50829pt x 845.0471pt>
+File: task.pdf Graphic file (type pdf)
+<use task.pdf, page 3>
+Package pdftex.def Info: task.pdf , page3 used on input line 19.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: task.pdf Graphic file (type pdf)
+<use task.pdf, page 3>
+Package pdftex.def Info: task.pdf , page3 used on input line 19.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: task.pdf Graphic file (type pdf)
+<use task.pdf, page 3>
+Package pdftex.def Info: task.pdf , page3 used on input line 19.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [4
 
  <./task.pdf>] (./paper.toc)
 \tf@toc=\write4
 \openout4 = `paper.toc'.
 
- [4]
+ [5]
 \openout2 = `intro.aux'.
 
  (./intro.tex
@@ -2149,10 +2164,10 @@ TLF.
 LaTeX Font Info:    Font shape `TS1/Tempora-TLF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 32.
 
-[5
+[6
 
 {/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/tempora/tmp_ac5xuc.enc}]) [
-6]
+7]
 \openout2 = `chapter1.aux'.
 
  (./chapter1.tex
@@ -2162,39 +2177,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--5
  []
 
 LaTeX Font Info:    Font shape `T2A/Tempora-TLF/m/it' will be
-(Font)              scaled to size 14.4pt on input line 18.
-[7
+(Font)              scaled to size 14.4pt on input line 24.
+[8
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 55--55
+Underfull \hbox (badness 10000) in paragraph at lines 64--64
 []|\T2A/Tempora-TLF/b/n/14.4 (+20) Telegram-
  []
 
 
-Overfull \hbox (10.57837pt too wide) in paragraph at lines 55--56
+Overfull \hbox (10.57837pt too wide) in paragraph at lines 64--65
 []|\T2A/Tempora-TLF/b/n/14.4 (-20) Предлагаемое
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 []|\T2A/Tempora-TLF/m/n/14.4 (+20) Да
  []
 
 
-Overfull \hbox (18.89038pt too wide) in paragraph at lines 61--62
+Overfull \hbox (18.89038pt too wide) in paragraph at lines 70--71
 []|\T2A/Tempora-TLF/m/n/14.4 (-20) Автоматическая| 
  []
 
 
-Overfull \hbox (16.78302pt too wide) in paragraph at lines 53--64
+Overfull \hbox (16.78302pt too wide) in paragraph at lines 62--73
  [][] 
  []
 
-[8] [9]
+[9] [10]
 LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
-117.
+126.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
@@ -2203,192 +2218,128 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-[10{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.en
+[11{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.en
 c}]
-Overfull \hbox (22.3655pt too wide) in paragraph at lines 151--151
+Overfull \hbox (22.3655pt too wide) in paragraph at lines 160--160
 []|\T2A/Tempora-TLF/m/n/14.4 (-20) Микрофреймворк
  []
 
 
-Underfull \hbox (badness 1210) in paragraph at lines 151--151
+Underfull \hbox (badness 1210) in paragraph at lines 160--160
 \T2A/Tempora-TLF/m/n/14.4 (+20) (ни-че-го лиш-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
 []|\T2A/Tempora-TLF/m/n/14.4 (+20) ѕВсј вклю-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
 \T2A/Tempora-TLF/m/n/14.4 (+20) че-ної
  []
 
 
-Overfull \hbox (2.46843pt too wide) in paragraph at lines 152--152
+Overfull \hbox (2.46843pt too wide) in paragraph at lines 161--161
 []|\T2A/Tempora-TLF/m/n/14.4 (-20) Максимальная
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--152
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
 \T2A/Tempora-TLF/m/n/14.4 (+20) (вы-бор ком-
  []
 
 
-Underfull \hbox (badness 6691) in paragraph at lines 152--152
+Underfull \hbox (badness 6691) in paragraph at lines 161--161
 \T2A/Tempora-TLF/m/n/14.4 (+20) по-нен-тов за
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--152
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
 \T2A/Tempora-TLF/m/n/14.4 (+20) раз-ра-бот-чи-
  []
 
 
-Underfull \hbox (badness 3826) in paragraph at lines 152--153
+Underfull \hbox (badness 3826) in paragraph at lines 161--162
 \T2A/Tempora-TLF/m/n/14.4 (+20) кая струк-ту-
  []
 
 
-Overfull \hbox (23.14877pt too wide) in paragraph at lines 153--154
+Overfull \hbox (23.14877pt too wide) in paragraph at lines 162--163
 []|\T2A/Tempora-TLF/m/n/14.4 (-20) Средний/Высокий| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--154
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
 []|\T2A/Tempora-TLF/m/n/14.4 (+20) Высокая за
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
 []|\T2A/Tempora-TLF/m/n/14.4 (+20) Зависит от
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
 \T2A/Tempora-TLF/m/n/14.4 (+20) ко-ли-че-ства
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
 \T2A/Tempora-TLF/m/n/14.4 (+20) под-клю-чен-
  []
 
-[11] [12]
-Overfull \hbox (1.30144pt too wide) in paragraph at lines 218--220
+[12] [13]
+Overfull \hbox (1.30144pt too wide) in paragraph at lines 227--229
 []\T2A/Tempora-TLF/m/it/14.4 (-20) Уровень пред-став-ле-ния (Presentation Layer
 ): \T2A/Tempora-TLF/m/n/14.4 (-20) Адап-тив-ный веб-интерфейс,
  []
 
-[13]) [14]
-\openout2 = `chapter2.aux'.
+[14]) [15] (./paper.bbl
 
- (./chapter2.tex
-<images/use_case_diagram.png, id=193, 1927.2pt x 963.6pt>
-File: images/use_case_diagram.png Graphic file (type png)
-<use images/use_case_diagram.png>
-Package pdftex.def Info: images/use_case_diagram.png  used on input line 33.
-(pdftex.def)             Requested size: 375.57782pt x 187.77626pt.
- [15
+LaTeX Warning: Empty `thebibliography' environment on input line 11.
+
+)
+
+Package caption Warning: Unused \captionsetup[figure] on input line 118.
+See the caption package documentation for explanation.
 
 
-
- <./images/use_case_diagram.png>]
-Overfull \hbox (2.60733pt too wide) in alignment at lines 46--51
- [] [] [] [] 
- []
+Package caption Warning: Unused \captionsetup[longtable] on input line 139.
+See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.60733pt too wide) in alignment at lines 51--55
- [] [] [] [] 
- []
+Package caption Warning: Unused \captionsetup[lstlisting] on input line 241.
+See the caption package documentation for explanation.
+
+[16
 
 
-Overfull \hbox (2.60733pt too wide) in alignment at lines 55--58
- [] [] [] [] 
- []
-
-
-Overfull \hbox (2.60733pt too wide) in alignment at lines 58--61
- [] [] [] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 74--74
-[]|\T2A/Tempora-TLF/m/n/14.4 (+20) Назначенный ис-пол-ни-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 75--75
-[]|\T2A/Tempora-TLF/m/n/14.4 (+20) DEFAULT
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--76
-[]|\T2A/Tempora-TLF/m/n/14.4 (+20) DEFAULT
- []
-
-
-Overfull \hbox (2.60733pt too wide) in alignment at lines 61--83
- [] [] [] [] 
- []
-
-
-ignored: Infinite glue shrinkage found in box being split [16]) [17]
-\openout2 = `chapter3.aux'.
-
- (./chapter3.tex
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 13.
-LaTeX Font Info:    Font shape `T2A/Tempora-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 14.
-) [18
-
-
-
-] [19]
-\openout2 = `conclusion.aux'.
-
- (./conclusion.tex [20
-
-
-
-]) [21]
-(./paper.bbl) [22
-
-
-] (./paper.aux (./title.aux) (./intro.aux) (./chapter1.aux)
-(./chapter2.aux) (./chapter3.aux) (./conclusion.aux))
+] (./paper.aux (./title.aux) (./intro.aux) (./chapter1.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 55C4C58502DC81F28BCC42CF3BBD75F9;7590.
+(rerunfilecheck)             Checksum: B7556520C02F725727ACFFDB66050775;4581.
  ) 
 Here is how much of TeX's memory you used:
- 24662 strings out of 467525
- 401410 string characters out of 5418988
- 929969 words of memory out of 5000000
- 52927 multiletter control sequences out of 15000+600000
- 676949 words of font info for 147 fonts, out of 8000000 for 9000
+ 24481 strings out of 467525
+ 397710 string characters out of 5418988
+ 819003 words of memory out of 5000000
+ 52821 multiletter control sequences out of 15000+600000
+ 673495 words of font info for 141 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,17n,131p,1002b,2322s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/tempora/Tempora-Bold.p
 fb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/tempora/Tempora-Itali
 c.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/tempora/Tempora-Re
-gular.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
-.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.p
-fb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb>
-Output written on paper.pdf (22 pages, 285933 bytes).
+gular.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1
+440.pfb>
+Output written on paper.pdf (16 pages, 161626 bytes).
 PDF statistics:
- 343 PDF objects out of 1000 (max. 8388607)
- 285 compressed objects within 3 object streams
- 75 named destinations out of 1000 (max. 500000)
- 29370 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 183 PDF objects out of 1000 (max. 8388607)
+ 147 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
+ 26730 words of extra memory for PDF output out of 29859 (max. 10000000)
 

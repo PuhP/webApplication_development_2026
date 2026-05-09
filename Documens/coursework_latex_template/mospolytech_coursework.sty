@@ -41,6 +41,7 @@
 % Расстояние от текста до заголовка 12pt, от заголовка до текста 6pt
 \titlespacing*{\section}{0pt}{12pt}{6pt}
 \titlespacing*{\subsection}{0pt}{12pt}{6pt}
+\titlespacing*{\subsubsection}{0pt}{12pt}{6pt}
 
 % Заголовки структурных элементов (section)
 \titleformat{name=\section}
@@ -65,11 +66,16 @@
 {\hspace{1.25cm}\thesubsection}
 {1em}
 {}
-% --- Настройка отступов в оглавлении для subsection и subsubsection ---
-\makeatletter
-\renewcommand*\l@subsection{\@dottedtocline{2}{1.5em}{2.3em}}   % левый отступ 1.5em
-\renewcommand*\l@subsubsection{\@dottedtocline{3}{1.5em}{3.2em}}% такой же отступ 1.5em
-\makeatother
+
+\titleformat{\subsubsection}
+{\nohyphens\normalfont\bfseries}
+{\hspace{1.25cm}\thesubsubsection}
+{1em}
+{}
+
+% В содержание включаются заголовки до второго уровня
+\setcounter{tocdepth}{2}
+
 % --- Настройка сносок ---
 
 % Настройка знака сноски: надстрочная цифра со скобкой "(1)"

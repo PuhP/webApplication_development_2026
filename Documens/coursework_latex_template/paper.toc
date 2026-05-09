@@ -6,6 +6,18 @@
 \contentsline {subsubsection}{\numberline {1.1.2}Анализ существующих инструментов организации учебных очередей и обоснование эффективности разработки}{9}{subsubsection.1.1.2}%
 \contentsline {subsection}{\numberline {1.2}Обоснование выбора стека технологий}{11}{subsection.1.2}%
 \contentsline {subsubsection}{\numberline {1.2.1}Выбор клиентских технологий}{11}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Выбор серверных технологий и СУБД}{12}{subsubsection.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.3}Научная новизна и практическая значимость}{14}{subsubsection.1.2.3}%
-\contentsline {subsubsection}{\numberline {1.2.4}Описание архитектурных решений и требований к БД}{14}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.2}Выбор серверных технологий и СУБД}{13}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Научная новизна и практическая значимость}{15}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Описание архитектурных решений и требований к БД}{16}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {2.1.1}Теоретический анализ целевой аудитории и разработка User Stories}{17}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Описание ролей и сценариев взаимодействия Студент--Преподаватель--Администратор}{17}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Разработка UML Use Case}{18}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Для роли «Студент»}{18}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Для роли «Администратор» и «Преподаватель»}{18}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Проектирование модели данных}{20}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Проектирование ER-диаграммы для сущностей «Администратор и Преподаватель» и логической схемы БД}{20}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Проектирование ER-диаграммы для сущности «Студент» и физической схемы БД}{20}{subsubsection.2.3.2}%
+\contentsline {paragraph}{Пояснение по логике подтверждения:}{20}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.4}Разработка макетов Wireframes}{20}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Разработка макета Wireframe для очереди и Студента}{21}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Разработка макета Wireframe для Преподавателя и администратора}{21}{subsubsection.2.4.2}%

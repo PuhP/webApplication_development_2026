@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.29)  27 APR 2026 10:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.29)  9 MAY 2026 20:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1885,7 +1885,7 @@ LaTeX Font Info:    Font shape `T2A/Tempora-TLF/m/n' will be
 Package babel Info: 'russian' activates 'russian' shorthands.
 (babel)             Reported on input line 9.
 
-(./intro.aux) (./chapter1.aux))
+(./intro.aux) (./chapter1.aux) (./chapter2.aux))
 \openout1 = `paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -2083,12 +2083,12 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 {/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2026/texmf-dist/fonts/enc/dvips/tempora/t2a-tempora.enc}])
-<task.pdf, id=49, 597.50829pt x 845.0471pt>
+<task.pdf, id=37, 597.50829pt x 845.0471pt>
 File: task.pdf Graphic file (type pdf)
 <use task.pdf>
 Package pdftex.def Info: task.pdf  used on input line 19.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
-<task.pdf, id=51, page=1, 597.50829pt x 845.0471pt>
+<task.pdf, id=39, page=1, 597.50829pt x 845.0471pt>
 File: task.pdf Graphic file (type pdf)
 <use task.pdf, page 1>
 Package pdftex.def Info: task.pdf , page1 used on input line 19.
@@ -2114,7 +2114,7 @@ Package pdftex.def Info: task.pdf , page1 used on input line 19.
 
 
  <./task.pdf>]
-<task.pdf, id=69, page=2, 597.50829pt x 845.0471pt>
+<task.pdf, id=57, page=2, 597.50829pt x 845.0471pt>
 File: task.pdf Graphic file (type pdf)
 <use task.pdf, page 2>
 Package pdftex.def Info: task.pdf , page2 used on input line 19.
@@ -2131,7 +2131,7 @@ Package pdftex.def Info: task.pdf , page2 used on input line 19.
 [3
 
  <./task.pdf>]
-<task.pdf, id=74, page=3, 597.50829pt x 845.0471pt>
+<task.pdf, id=62, page=3, 597.50829pt x 845.0471pt>
 File: task.pdf Graphic file (type pdf)
 <use task.pdf, page 3>
 Package pdftex.def Info: task.pdf , page3 used on input line 19.
@@ -2183,33 +2183,109 @@ LaTeX Font Info:    Font shape `T2A/Tempora-TLF/m/it' will be
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 64--64
-[]|\T2A/Tempora-TLF/b/n/14.4 (+20) Telegram-
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+[]|\T2A/Tempora-TLF/b/n/12 (+20) Google
  []
 
 
-Overfull \hbox (10.57837pt too wide) in paragraph at lines 64--65
-[]|\T2A/Tempora-TLF/b/n/14.4 (-20) Предлагаемое
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+[]|\T2A/Tempora-TLF/b/n/12 (+20) Telegram-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--70
-[]|\T2A/Tempora-TLF/m/n/14.4 (+20) Да
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+[]|\T2A/Tempora-TLF/b/n/12 (+20) CRM-
  []
 
 
-Overfull \hbox (18.89038pt too wide) in paragraph at lines 70--71
-[]|\T2A/Tempora-TLF/m/n/14.4 (-20) Автоматическая| 
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+\T2A/Tempora-TLF/b/n/12 (+20) системы
  []
 
 
-Overfull \hbox (16.78302pt too wide) in paragraph at lines 62--73
- [][] 
+Overfull \hbox (5.78511pt too wide) in paragraph at lines 82--82
+\T2A/Tempora-TLF/b/n/12 (-20) (YCLIENTS
+ []
+
+
+Overfull \hbox (4.0733pt too wide) in paragraph at lines 82--82
+[]|\T2A/Tempora-TLF/b/n/12 (-20) Предлагаемое
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+[]|\T2A/Tempora-TLF/b/n/12 (+20) Да \T2A/Tempora-TLF/m/n/12 (+20) (кол-во
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+\T2A/Tempora-TLF/m/n/12 (+20) сдан-ных ра-
+ []
+
+
+Underfull \hbox (badness 1348) in paragraph at lines 82--82
+[]|\T2A/Tempora-TLF/m/n/12 (+20) Нет (толь-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+[]|\T2A/Tempora-TLF/m/n/12 (+20) Только
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+\T2A/Tempora-TLF/m/n/12 (+20) жест-кие
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+[]|\T2A/Tempora-TLF/b/n/12 (+20) Да \T2A/Tempora-TLF/m/n/12 (+20) (рань-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+\T2A/Tempora-TLF/m/n/12 (+20) ше/позже/все
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+[]|\T2A/Tempora-TLF/m/n/12 (+20) SMS/Push
+ []
+
+
+Overfull \hbox (4.79082pt too wide) in paragraph at lines 82--82
+[]|\T2A/Tempora-TLF/m/n/12 (-20) Отсутствует| 
+ []
+
+
+Overfull \hbox (13.71327pt too wide) in paragraph at lines 82--82
+[]|\T2A/Tempora-TLF/m/n/12 (-20) Универсально| 
+ []
+
+
+Overfull \hbox (0.87732pt too wide) in paragraph at lines 82--82
+[]|\T2A/Tempora-TLF/m/n/12 (-20) Коммерция| 
+ []
+
+
+Overfull \hbox (12.07004pt too wide) in paragraph at lines 82--82
+[]|\T2A/Tempora-TLF/b/n/12 (-20) Академическая| 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 82--82
+[][][][][][]
  []
 
 [9] [10]
+Overfull \hbox (5.17044pt too wide) in paragraph at lines 135--139
+[]\T2A/Tempora-TLF/m/it/14.4 (-20) Производительность на мо-биль-ных устрой-ств
+ах: \T2A/Tempora-TLF/m/n/14.4 (-20) SPA-фреймворки
+ []
+
+[11]
 LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
-126.
+157.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
@@ -2218,128 +2294,175 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-[11{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.en
+[12{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.en
 c}]
-Overfull \hbox (22.3655pt too wide) in paragraph at lines 160--160
+Overfull \hbox (22.3655pt too wide) in paragraph at lines 190--190
 []|\T2A/Tempora-TLF/m/n/14.4 (-20) Микрофреймворк
  []
 
 
-Underfull \hbox (badness 1210) in paragraph at lines 160--160
+Underfull \hbox (badness 1210) in paragraph at lines 190--190
 \T2A/Tempora-TLF/m/n/14.4 (+20) (ни-че-го лиш-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
 []|\T2A/Tempora-TLF/m/n/14.4 (+20) ѕВсј вклю-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
 \T2A/Tempora-TLF/m/n/14.4 (+20) че-ної
  []
 
 
-Overfull \hbox (2.46843pt too wide) in paragraph at lines 161--161
+Overfull \hbox (2.46843pt too wide) in paragraph at lines 191--191
 []|\T2A/Tempora-TLF/m/n/14.4 (-20) Максимальная
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
+Underfull \hbox (badness 10000) in paragraph at lines 191--191
 \T2A/Tempora-TLF/m/n/14.4 (+20) (вы-бор ком-
  []
 
 
-Underfull \hbox (badness 6691) in paragraph at lines 161--161
+Underfull \hbox (badness 6691) in paragraph at lines 191--191
 \T2A/Tempora-TLF/m/n/14.4 (+20) по-нен-тов за
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
+Underfull \hbox (badness 10000) in paragraph at lines 191--191
 \T2A/Tempora-TLF/m/n/14.4 (+20) раз-ра-бот-чи-
  []
 
 
-Underfull \hbox (badness 3826) in paragraph at lines 161--162
+Underfull \hbox (badness 3826) in paragraph at lines 191--192
 \T2A/Tempora-TLF/m/n/14.4 (+20) кая струк-ту-
  []
 
 
-Overfull \hbox (23.14877pt too wide) in paragraph at lines 162--163
+Overfull \hbox (23.14877pt too wide) in paragraph at lines 192--193
 []|\T2A/Tempora-TLF/m/n/14.4 (-20) Средний/Высокий| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--163
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
 []|\T2A/Tempora-TLF/m/n/14.4 (+20) Высокая за
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
 []|\T2A/Tempora-TLF/m/n/14.4 (+20) Зависит от
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
 \T2A/Tempora-TLF/m/n/14.4 (+20) ко-ли-че-ства
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
 \T2A/Tempora-TLF/m/n/14.4 (+20) под-клю-чен-
  []
 
-[12] [13]
-Overfull \hbox (1.30144pt too wide) in paragraph at lines 227--229
+[13] [14] [15]
+Overfull \hbox (1.30144pt too wide) in paragraph at lines 260--262
 []\T2A/Tempora-TLF/m/it/14.4 (-20) Уровень пред-став-ле-ния (Presentation Layer
 ): \T2A/Tempora-TLF/m/n/14.4 (-20) Адап-тив-ный веб-интерфейс,
  []
 
-[14]) [15] (./paper.bbl
+) [16]
+\openout2 = `chapter2.aux'.
+
+ (./chapter2.tex
+Underfull \hbox (badness 10000) in paragraph at lines 11--11
+|[]\T2A/Tempora-TLF/b/n/14.4 (+20) Описание ро-лей и сце-на-ри-ев вза-и-мо-дей-
+ствия
+ []
+
+[17
+
+
+
+] [18]
+<images/UML_Use_Case_prepod_admin.png, id=156, 608.2725pt x 631.35875pt>
+File: images/UML_Use_Case_prepod_admin.png Graphic file (type png)
+<use images/UML_Use_Case_prepod_admin.png>
+Package pdftex.def Info: images/UML_Use_Case_prepod_admin.png  used on input li
+ne 81.
+(pdftex.def)             Requested size: 375.57782pt x 389.83917pt.
+ [19 <./images/UML_Use_Case_prepod_admin.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+|[]\T2A/Tempora-TLF/b/n/14.4 (+20) Проектирование ER-диаграммы для сущ-но-стей
+ []
+
+<images/Logical_ER_diagram_of_relationships_for_administrative_roles.png, id=16
+4, 403.5075pt x 489.83pt>
+File: images/Logical_ER_diagram_of_relationships_for_administrative_roles.png G
+raphic file (type png)
+<use images/Logical_ER_diagram_of_relationships_for_administrative_roles.png>
+Package pdftex.def Info: images/Logical_ER_diagram_of_relationships_for_adminis
+trative_roles.png  used on input line 110.
+(pdftex.def)             Requested size: 375.57782pt x 455.92584pt.
+
+Underfull \hbox (badness 3547) in paragraph at lines 136--136
+|[]\T2A/Tempora-TLF/b/n/14.4 (+20) Разработка ма-ке-та Wireframe для Пре-по-да-
+ва-те-ля и
+ []
+
+[20] [21 <./images/Logical_ER_diagram_of_relationships_for_administrative_roles
+.png>]
+<images/examle_pril_admin_prepod.png, id=181, 848.57025pt x 406.51875pt>
+File: images/examle_pril_admin_prepod.png Graphic file (type png)
+<use images/examle_pril_admin_prepod.png>
+Package pdftex.def Info: images/examle_pril_admin_prepod.png  used on input lin
+e 155.
+(pdftex.def)             Requested size: 375.57782pt x 179.9233pt.
+) [22 <./images/examle_pril_admin_prepod.png>] (./paper.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 11.
 
 )
 
-Package caption Warning: Unused \captionsetup[figure] on input line 118.
+Package caption Warning: Unused \captionsetup[longtable] on input line 145.
 See the caption package documentation for explanation.
 
 
-Package caption Warning: Unused \captionsetup[longtable] on input line 139.
+Package caption Warning: Unused \captionsetup[lstlisting] on input line 247.
 See the caption package documentation for explanation.
 
-
-Package caption Warning: Unused \captionsetup[lstlisting] on input line 241.
-See the caption package documentation for explanation.
-
-[16
+[23
 
 
-] (./paper.aux (./title.aux) (./intro.aux) (./chapter1.aux))
+] (./paper.aux (./title.aux) (./intro.aux) (./chapter1.aux) (./chapter2.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: B7556520C02F725727ACFFDB66050775;4581.
+(rerunfilecheck)             Checksum: 20EB91DEF8729D7F23A1763D6C41ED21;2153.
  ) 
 Here is how much of TeX's memory you used:
- 24481 strings out of 467525
- 397710 string characters out of 5418988
- 819003 words of memory out of 5000000
- 52821 multiletter control sequences out of 15000+600000
- 673495 words of font info for 141 fonts, out of 8000000 for 9000
+ 24646 strings out of 467525
+ 401883 string characters out of 5418988
+ 821861 words of memory out of 5000000
+ 52918 multiletter control sequences out of 15000+600000
+ 681179 words of font info for 172 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,17n,131p,1002b,2322s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,17n,131p,1002b,2347s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/tempora/Tempora-Bold.p
 fb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/tempora/Tempora-Itali
 c.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/tempora/Tempora-Re
 gular.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1
 440.pfb>
-Output written on paper.pdf (16 pages, 161626 bytes).
+Output written on paper.pdf (23 pages, 1270539 bytes).
 PDF statistics:
- 183 PDF objects out of 1000 (max. 8388607)
- 147 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 26730 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 232 PDF objects out of 1000 (max. 8388607)
+ 183 compressed objects within 2 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 28257 words of extra memory for PDF output out of 29859 (max. 10000000)
 

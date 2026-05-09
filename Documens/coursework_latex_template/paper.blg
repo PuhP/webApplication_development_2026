@@ -4,13 +4,14 @@ The top-level auxiliary file: paper.aux
 A level-1 auxiliary file: title.aux
 A level-1 auxiliary file: intro.aux
 A level-1 auxiliary file: chapter1.aux
+A level-1 auxiliary file: chapter2.aux
 The style file: ugost2003.bst
 I found no \citation commands---while reading file paper.aux
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: refs.bib
 You've used 0 entries,
             3895 wiz_defined-function locations,
-            1094 strings with 8627 characters,
+            1095 strings with 8639 characters,
 and the built_in function-call counts, 38 in all, are:
 = -- 0
 > -- 0

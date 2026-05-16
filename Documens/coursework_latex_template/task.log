@@ -1,24 +1,24 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.29)  9 MAY 2026 16:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.1)  16 MAY 2026 17:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **task.tex
 (./task.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
-(/usr/local/texlive/2026/texmf-dist/tex/latex/extsizes/extarticle.cls
+L3 programming layer <2026-03-20>
+(/opt/texlive/texdir/texmf-dist/tex/latex/extsizes/extarticle.cls
 Document Class: extarticle 1996/10/08 v1.0 Non Standard LaTeX document class
-(/usr/local/texlive/2026/texmf-dist/tex/latex/extsizes/size14.clo
+(/opt/texlive/texdir/texmf-dist/tex/latex/extsizes/size14.clo
 File: size14.clo 1999/11/11 v1.4a NON-Standard LaTeX file (size option)
 )
-(/usr/local/texlive/2026/texmf-dist/tex/latex/base/exscale.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/base/exscale.sty
 Package: exscale 2025/06/05 v2.1i Standard LaTeX package exscale
 LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 57.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/cmex/m/n --> OMX/cmex/m/n on input line 57.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/cmex/m/n --> OMX/cmex/m/n on input line 57.
-\big@size=\dimen148
+\big@size=\dimen150
 )
 \c@part=\count275
 \c@section=\count276
@@ -30,17 +30,17 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 \c@table=\count282
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
-\bibindent=\dimen149
+\bibindent=\dimen151
 )
-(/usr/local/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/cyrillic/t2aenc.def
+(/opt/texlive/texdir/texmf-dist/tex/latex/cyrillic/t2aenc.def
 File: t2aenc.def 2023/11/07 v1.0k Cyrillic encoding definition file
 Now handling font encoding T2A ...
 ... processing UTF-8 mapping file for font encoding T2A
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/base/t2aenc.dfu
+(/opt/texlive/texdir/texmf-dist/tex/latex/base/t2aenc.dfu
 File: t2aenc.dfu 2022/06/07 v1.3c UTF-8 support
    defining Unicode char U+00A4 (decimal 164)
    defining Unicode char U+00A7 (decimal 167)
@@ -244,15 +244,15 @@ File: t2aenc.dfu 2022/06/07 v1.3c UTF-8 support
 LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 1
 16.
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/cyrillic/t2acmr.fd
+(/opt/texlive/texdir/texmf-dist/tex/latex/cyrillic/t2acmr.fd
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 ))
-(/usr/local/texlive/2026/texmf-dist/tex/latex/base/inputenc.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
 )
-(/usr/local/texlive/2026/texmf-dist/tex/generic/babel/babel.sty
+(/opt/texlive/texdir/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2026/03/24 v26.5 The multilingual framework for LuaLaTeX, pdfLaT
 eX and XeLaTeX
 \babel@savecnt=\count283
@@ -270,20 +270,19 @@ LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?)
 on input line 2086.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
 on input line 2111.
-\U@D=\dimen150
+\U@D=\dimen152
 \l@unhyphenated=\language91
 
-(/usr/local/texlive/2026/texmf-dist/tex/generic/babel/txtbabel.def)
+(/opt/texlive/texdir/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count284
 
-(/usr/local/texlive/2026/texmf-dist/tex/generic/babel/locale/en/babel-english.t
-ex)
-(/usr/local/texlive/2026/texmf-dist/tex/generic/babel/locale/ru/babel-russian.t
-ex)
+(/opt/texlive/texdir/texmf-dist/tex/generic/babel/locale/en/babel-english.tex)
+(/opt/texlive/texdir/texmf-dist/tex/generic/babel/locale/ru/babel-russian.tex)
 Package babel Info: Importing font and identification data for english
 (babel)             from babel-en.ini. Reported on input line 4330.
- (/usr/local/texlive/2026/texmf-dist/tex/generic/babel-english/english.ldf
+
+(/opt/texlive/texdir/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
@@ -295,24 +294,24 @@ Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
 Package babel Info: Importing font and identification data for russian
 (babel)             from babel-ru.ini. Reported on input line 4330.
 
-(/usr/local/texlive/2026/texmf-dist/tex/generic/babel-russian/russianb.ldf
+(/opt/texlive/texdir/texmf-dist/tex/generic/babel-russian/russianb.ldf
 File: russianb.ldf 2021/01/10 1.3m Russian support for the Babel system
 Language: russian 2020/09/09 1.3k Russian support for the Babel system
 Package babel Info: Making " an active character on input line 124.
 Package babel Info: Default for \cyrdash is provided on input line 163.
 ))
-(/usr/local/texlive/2026/texmf-dist/tex/latex/tempora/tempora.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/tempora/tempora.sty
 Package: tempora 2016/02/02 (msharpe) Style file for Tempora.
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/cyrillic/ot2enc.def
+(/opt/texlive/texdir/texmf-dist/tex/latex/cyrillic/ot2enc.def
 File: ot2enc.def 2022/06/11 v3.3b Cyrillic encoding definition file
 Now handling font encoding OT2 ...
 ... processing UTF-8 mapping file for font encoding OT2
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/base/ot2enc.dfu
+(/opt/texlive/texdir/texmf-dist/tex/latex/base/ot2enc.dfu
 File: ot2enc.dfu 2022/06/07 v1.3c UTF-8 support
    defining Unicode char U+00AB (decimal 171)
    defining Unicode char U+00BB (decimal 187)
@@ -454,12 +453,12 @@ File: ot2enc.dfu 2022/06/07 v1.3c UTF-8 support
    defining Unicode char U+201D (decimal 8221)
    defining Unicode char U+2116 (decimal 8470)
 ))
-(/usr/local/texlive/2026/texmf-dist/tex/latex/cyrillic/t2cenc.def
+(/opt/texlive/texdir/texmf-dist/tex/latex/cyrillic/t2cenc.def
 File: t2cenc.def 2023/11/07 v1.0k Cyrillic encoding definition file
 Now handling font encoding T2C ...
 ... processing UTF-8 mapping file for font encoding T2C
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/base/t2cenc.dfu
+(/opt/texlive/texdir/texmf-dist/tex/latex/base/t2cenc.dfu
 File: t2cenc.dfu 2022/06/07 v1.3c UTF-8 support
    defining Unicode char U+00A4 (decimal 164)
    defining Unicode char U+00A7 (decimal 167)
@@ -650,12 +649,12 @@ File: t2cenc.dfu 2022/06/07 v1.3c UTF-8 support
    defining Unicode char U+FB05 (decimal 64261)
    defining Unicode char U+FB06 (decimal 64262)
 ))
-(/usr/local/texlive/2026/texmf-dist/tex/latex/cyrillic/t2benc.def
+(/opt/texlive/texdir/texmf-dist/tex/latex/cyrillic/t2benc.def
 File: t2benc.def 2023/11/07 v1.0k Cyrillic encoding definition file
 Now handling font encoding T2B ...
 ... processing UTF-8 mapping file for font encoding T2B
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/base/t2benc.dfu
+(/opt/texlive/texdir/texmf-dist/tex/latex/base/t2benc.dfu
 File: t2benc.dfu 2022/06/07 v1.3c UTF-8 support
    defining Unicode char U+00A4 (decimal 164)
    defining Unicode char U+00A7 (decimal 167)
@@ -850,12 +849,12 @@ File: t2benc.dfu 2022/06/07 v1.3c UTF-8 support
    defining Unicode char U+FB05 (decimal 64261)
    defining Unicode char U+FB06 (decimal 64262)
 ))
-(/usr/local/texlive/2026/texmf-dist/tex/latex/greek-fontenc/lgrenc.def
+(/opt/texlive/texdir/texmf-dist/tex/latex/greek-fontenc/lgrenc.def
 File: lgrenc.def 2023-09-12 2.5 LGR Greek font encoding definitions
 Now handling font encoding LGR ...
 ... processing UTF-8 mapping file for font encoding LGR
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/greek-inputenc/lgrenc.dfu
+(/opt/texlive/texdir/texmf-dist/tex/latex/greek-inputenc/lgrenc.dfu
 File: lgrenc.dfu 2023-03-21 1.9 UTF-8 support for Greek
    defining Unicode char U+00A8 (decimal 168)
    defining Unicode char U+00AB (decimal 171)
@@ -1207,7 +1206,7 @@ File: lgrenc.dfu 2023-03-21 1.9 UTF-8 support for Greek
    defining Unicode char U+10146 (decimal 65862)
    defining Unicode char U+10147 (decimal 65863)
 )
-(/usr/local/texlive/2026/texmf-dist/tex/latex/greek-fontenc/greek-fontenc.def
+(/opt/texlive/texdir/texmf-dist/tex/latex/greek-fontenc/greek-fontenc.def
 File: greek-fontenc.def 2023-09-12 2.5 Common Greek font encoding definitions
 LaTeX Encoding Info:    Ignoring declaration for text command \accACUTE (encodi
 ng LGR) on input line 251.
@@ -1215,38 +1214,40 @@ LaTeX Encoding Info:    Ignoring declaration for text command \accGRAVE (encodi
 ng LGR) on input line 259.
 LaTeX Encoding Info:    Ignoring declaration for text command \accTILDE (encodi
 ng LGR) on input line 267.
-))) (/usr/local/texlive/2026/texmf-dist/tex/latex/base/textcomp.sty
+)))
+(/opt/texlive/texdir/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
 )
-(/usr/local/texlive/2026/texmf-dist/tex/latex/fontaxes/fontaxes.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/fontaxes/fontaxes.sty
 Package: fontaxes 2026-01-02 v2.0.2 Font selection axes (deprecated)
 Applying: [2024-11-01] Use figureversions if present on input line 74.
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/figureversions/figureversions.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/figureversions/figureversions.sty
 Package: figureversions 2025-04-29 v1.0.1 Figure versions
 )
 Already applied: [0000-00-00] Fall back to v1 on input line 76.
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+)
+(/opt/texlive/texdir/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2025/11/04 v2.10 package option processing (HA)
 
-(/usr/local/texlive/2026/texmf-dist/tex/generic/xkeyval/xkeyval.tex
-(/usr/local/texlive/2026/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/opt/texlive/texdir/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/opt/texlive/texdir/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks19
 \XKV@tempa@toks=\toks20
 \XKV@tempb@toks=\toks21
 
-(/usr/local/texlive/2026/texmf-dist/tex/generic/xkeyval/keyval.tex))
+(/opt/texlive/texdir/texmf-dist/tex/generic/xkeyval/keyval.tex))
 \XKV@depth=\count285
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )))
-(/usr/local/texlive/2026/texmf-dist/tex/latex/tools/longtable.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
 \LTleft=\skip51
 \LTright=\skip52
 \LTpre=\skip53
 \LTpost=\skip54
 \LTchunksize=\count286
-\LTcapwidth=\dimen151
+\LTcapwidth=\dimen153
 \LT@head=\box53
 \LT@firsthead=\box54
 \LT@foot=\box55
@@ -1258,30 +1259,30 @@ Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
 \c@LT@chunks=\count290
 \LT@p@ftn=\toks22
 )
-(/usr/local/texlive/2026/texmf-dist/tex/latex/tools/array.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/tools/array.sty
 Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
-\col@sep=\dimen152
+\col@sep=\dimen154
 \ar@mcellbox=\box58
-\extrarowheight=\dimen153
+\extrarowheight=\dimen155
 \NC@list=\toks23
 \extratabsurround=\skip55
 \backup@length=\skip56
 \ar@cellbox=\box59
 )
-(/usr/local/texlive/2026/texmf-dist/tex/latex/ltablex/ltablex.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/ltablex/ltablex.sty
 Package: ltablex 2014/08/13 v1.1 Modified tabularx
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/tools/tabularx.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
-\TX@col@width=\dimen154
-\TX@old@table=\dimen155
-\TX@old@col=\dimen156
-\TX@target=\dimen157
-\TX@delta=\dimen158
+\TX@col@width=\dimen156
+\TX@old@table=\dimen157
+\TX@old@col=\dimen158
+\TX@target=\dimen159
+\TX@delta=\dimen160
 \TX@cols=\count291
 \TX@ftn=\toks24
 ))
-(/usr/local/texlive/2026/texmf-dist/tex/latex/ragged2e/ragged2e.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/ragged2e/ragged2e.sty
 Package: ragged2e 2023/06/22 v3.6 ragged2e Package
 \CenteringLeftskip=\skip57
 \RaggedLeftLeftskip=\skip58
@@ -1298,32 +1299,32 @@ Package: ragged2e 2023/06/22 v3.6 ragged2e Package
 \RaggedRightParindent=\skip69
 \JustifyingParindent=\skip70
 )
-(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphicx.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphics.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/trig.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
 )
-(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+(/opt/texlive/texdir/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-def/pdftex.def
+(/opt/texlive/texdir/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen159
-\Gin@req@width=\dimen160
+\Gin@req@height=\dimen161
+\Gin@req@width=\dimen162
 )
-(/usr/local/texlive/2026/texmf-dist/tex/latex/tools/calc.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
 \calc@Acount=\count292
 \calc@Bcount=\count293
-\calc@Adimen=\dimen161
-\calc@Bdimen=\dimen162
+\calc@Adimen=\dimen163
+\calc@Bdimen=\dimen164
 \calc@Askip=\skip71
 \calc@Bskip=\skip72
 LaTeX Info: Redefining \setlength on input line 86.
@@ -1331,15 +1332,15 @@ LaTeX Info: Redefining \addtolength on input line 87.
 \calc@Ccount=\count294
 \calc@Cskip=\skip73
 )
-(/usr/local/texlive/2026/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/color.cfg
+(/opt/texlive/texdir/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+(/opt/texlive/texdir/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
 Package xcolor Info: Model `RGB' extended on input line 1365.
@@ -1350,47 +1351,46 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 )
-(/usr/local/texlive/2026/texmf-dist/tex/latex/geometry/geometry.sty
+(/opt/texlive/texdir/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2026/03/07 v6.0 Page Geometry
 
-(/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/opt/texlive/texdir/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
-(/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/iftex.sty
+(/opt/texlive/texdir/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
 \Gm@cnth=\count295
 \Gm@cntv=\count296
 \c@Gm@tempcnt=\count297
-\Gm@bindingoffset=\dimen163
-\Gm@wd@mp=\dimen164
-\Gm@odd@mp=\dimen165
-\Gm@even@mp=\dimen166
-\Gm@layoutwidth=\dimen167
-\Gm@layoutheight=\dimen168
-\Gm@layouthoffset=\dimen169
-\Gm@layoutvoffset=\dimen170
+\Gm@bindingoffset=\dimen165
+\Gm@wd@mp=\dimen166
+\Gm@odd@mp=\dimen167
+\Gm@even@mp=\dimen168
+\Gm@layoutwidth=\dimen169
+\Gm@layoutheight=\dimen170
+\Gm@layouthoffset=\dimen171
+\Gm@layoutvoffset=\dimen172
 \Gm@dimlist=\toks25
 )
 LaTeX Font Info:    Trying to load font information for T1+Tempora-TLF on input
  line 21.
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/tempora/T1Tempora-TLF.fd
+(/opt/texlive/texdir/texmf-dist/tex/latex/tempora/T1Tempora-TLF.fd
 File: T1Tempora-TLF.fd 2016/02/02 (autoinst) Font definitions for T1/Tempora-TL
 F.
 )
 LaTeX Font Info:    Font shape `T1/Tempora-TLF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 21.
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+(/opt/texlive/texdir/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count298
 )
 (./task.aux
 LaTeX Font Info:    Trying to load font information for T2A+Tempora-TLF on inpu
 t line 12.
-
-(/usr/local/texlive/2026/texmf-dist/tex/latex/tempora/t2atempora-tlf.fd
+ (/opt/texlive/texdir/texmf-dist/tex/latex/tempora/t2atempora-tlf.fd
 File: t2atempora-tlf.fd 2015/09/13 Font definitions for T2A/Tempora-TLF.
 )
 LaTeX Font Info:    Font shape `T2A/Tempora-TLF/m/n' will be
@@ -1419,8 +1419,7 @@ LaTeX Font Info:    ... okay on input line 21.
 LaTeX Font Info:    Checking defaults for OT2/cmr/m/n on input line 21.
 LaTeX Font Info:    Trying to load font information for OT2+cmr on input line 2
 1.
-
-(/usr/local/texlive/2026/texmf-dist/tex/latex/cyrillic/ot2cmr.fd
+ (/opt/texlive/texdir/texmf-dist/tex/latex/cyrillic/ot2cmr.fd
 File: ot2cmr.fd 2001/08/11 v3.2c Computer Modern Cyrillic font definitions
 )
 LaTeX Font Info:    ... okay on input line 21.
@@ -1428,7 +1427,7 @@ LaTeX Font Info:    Checking defaults for T2C/cmr/m/n on input line 21.
 LaTeX Font Info:    Trying to load font information for T2C+cmr on input line 2
 1.
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/cyrillic/t2ccmr.fd
+(/opt/texlive/texdir/texmf-dist/tex/latex/cyrillic/t2ccmr.fd
 File: t2ccmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
 LaTeX Font Info:    ... okay on input line 21.
@@ -1436,7 +1435,7 @@ LaTeX Font Info:    Checking defaults for T2B/cmr/m/n on input line 21.
 LaTeX Font Info:    Trying to load font information for T2B+cmr on input line 2
 1.
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/cyrillic/t2bcmr.fd
+(/opt/texlive/texdir/texmf-dist/tex/latex/cyrillic/t2bcmr.fd
 File: t2bcmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
 LaTeX Font Info:    ... okay on input line 21.
@@ -1444,7 +1443,7 @@ LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 21.
 LaTeX Font Info:    Trying to load font information for LGR+cmr on input line 2
 1.
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
+(/opt/texlive/texdir/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
 )
 LaTeX Font Info:    ... okay on input line 21.
@@ -1452,25 +1451,25 @@ LaTeX Info: Redefining \th on input line 21.
 \c@mv@tabular=\count299
 \c@mv@boldtabular=\count300
 
-(/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(/opt/texlive/texdir/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count301
-\scratchdimen=\dimen171
+\scratchdimen=\dimen173
 \scratchbox=\box60
 \nofMPsegments=\count302
 \nofMParguments=\count303
 \everyMPshowfont=\toks26
 \MPscratchCnt=\count304
-\MPscratchDim=\dimen172
+\MPscratchDim=\dimen174
 \MPnumerator=\count305
 \makeMPintoPDFobject=\count306
 \everyMPtoPDFconversion=\toks27
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+) (/opt/texlive/texdir/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+(/opt/texlive/texdir/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
@@ -1523,27 +1522,26 @@ LaTeX Font Info:    Font shape `T2A/Tempora-TLF/b/n' will be
 
 ignored: Infinite glue shrinkage found in box being split [1
 
-{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
-al/texlive/2026/texmf-dist/fonts/enc/dvips/tempora/t2a-tempora.enc}]
-ignored: Infinite gl
-ue shrinkage found in box being split
-[2] [3] (./task.aux)
+{/opt/texlive/texdir/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/opt/texlive
+/texdir/texmf-dist/fonts/enc/dvips/tempora/t2a-tempora.enc}]
+ignored: Infinite glue shrin
+kage found in box being split [2] [3]
+(./task.aux)
  ***********
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
+L3 programming layer <2026-03-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 7349 strings out of 467525
- 124167 string characters out of 5418988
- 558820 words of memory out of 5000000
- 36142 multiletter control sequences out of 15000+600000
+ 7348 strings out of 467349
+ 123563 string characters out of 5417750
+ 562195 words of memory out of 5000000
+ 36317 multiletter control sequences out of 15000+600000
  651693 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,11n,73p,459b,311s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/tempora/Tempora-Bold.p
-fb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/tempora/Tempora-Regul
-ar.pfb>
+</opt/texlive/texdir/texmf-dist/fonts/type1/public/tempora/Tempora-Bold.pfb><
+/opt/texlive/texdir/texmf-dist/fonts/type1/public/tempora/Tempora-Regular.pfb>
 Output written on task.pdf (3 pages, 70191 bytes).
 PDF statistics:
  25 PDF objects out of 1000 (max. 8388607)

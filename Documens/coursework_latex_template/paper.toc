@@ -26,3 +26,19 @@
 \contentsline {subsection}{\numberline {2.4}Разработка макетов Wireframes}{27}{subsection.2.4}%
 \contentsline {subsubsection}{\numberline {2.4.1}Разработка макета Wireframe для очереди и Студента}{28}{subsubsection.2.4.1}%
 \contentsline {subsubsection}{\numberline {2.4.2}Разработка макета Wireframe для Преподавателя и администратора}{28}{subsubsection.2.4.2}%
+\contentsline {section}{\MakeUppercase []{Глава 3. Разработка веб-приложения}}{30}{figure.caption.12}%
+\contentsline {subsection}{\numberline {3.1}Разработка базовой структуры приложения и вёрстка шаблонов страниц}{30}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Разработка шаблона страницы преподавателя и администратора, написание логики связи ``клиент-сервер''}{30}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Разработка шаблона страницы студента и написание логики очереди}{31}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Реализация модуля авторизации и разграничения прав доступа}{32}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Реализация модуля авторизации для Преподавателя и Студента}{32}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Реализация модуля авторизации для администратора, разграничения прав доступа для всех ролей}{33}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Разработка CRUD интерфейса}{33}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Разработка CRUD взаимодействия ``Клиент-Сервер'' для очередей}{34}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Разработка CRUD взаимодействия ``Клиент-Сервер'' для сущностей}{35}{subsubsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.4}Загрузка работ и выгрузка отчётов}{35}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Вёрстка адаптивного интерфейса (Jinja2, HTML, CSS)}{37}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Реализация WebSocket-обновления очереди в реальном времени}{38}{subsection.3.6}%
+\contentsline {section}{\MakeUppercase []{Заключение}}{41}{lstnumber.15.5}%
+\babel@toc {russian}{}\relax 
+\babel@toc {russian}{}\relax 

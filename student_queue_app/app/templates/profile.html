@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Профиль{% endblock %}
+{% block content %}
+<div class="page-head"><div><p class="eyebrow">Профиль</p><h1>{{ current_user.full_name }}</h1><p class="muted">{{ current_user.email }}</p></div></div>
+
+<section class="grid two">
+  <article class="card">
+    <h2>Загрузить работу</h2>
+    <form method="post" enctype="multipart/form-data" class="form">
+      <label>Дисциплина
+        <select name="subject_id" required>{% for subject in subjects %}<option value="{{ subject.id }}">{{ subject.name }} · {{ subject.group.name }}</option>{% endfor %}</select>
+      </label>
+      <label>Номер лабораторной<input type="number" name="lab_number" min="1" value="1" required></label>
+      <label>Файл<input type="file" name="work_file" required></label>
+      <label>Комментарий<input type="text" name="comment" placeholder="Краткое описание"></label>
+      <button class="btn" type="submit">Загрузить</button>
+    </form>
+  </article>
+
+  <article class="card">
+    <h2>Мои оценки</h2>
+    <ul class="list">
+      {% for grade in grades %}<li>{{ grade.subject.name }} · ЛР {{ grade.lab_number }} — <strong>{{ grade.grade }}</strong> <span class="muted">{{ grade.date_passed.strftime('%d.%m.%Y') }}</span></li>{% else %}<li>Оценок пока нет.</li>{% endfor %}
+    </ul>
+  </article>
+</section>
+
+<section class="card">
+  <h2>Загруженные файлы</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Дата</th><th>Предмет</th><th>ЛР</th><th>Файл</th><th>Комментарий</th></tr></thead>
+      <tbody>
+      {% for upload in uploads %}
+        <tr>
+          <td>{{ upload.uploaded_at.strftime('%d.%m.%Y %H:%M') }}</td>
+          <td>{{ upload.subject.name }}</td>
+          <td>{{ upload.lab_number }}</td>
+          <td><a href="{{ url_for('main.uploaded_file', filename=upload.filename) }}">{{ upload.original_filename }}</a></td>
+          <td>{{ upload.comment or '' }}</td>
+        </tr>
+      {% else %}<tr><td colspan="5" class="empty">Файлов нет.</td></tr>{% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

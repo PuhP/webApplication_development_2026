@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: queue_app_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: queue_db
+      POSTGRES_USER: queue_user
+      POSTGRES_PASSWORD: queue_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+
+  web:
+    build: .
+    container_name: queue_app_web
+    restart: unless-stopped
+    depends_on:
+      - db
+    env_file:
+      - .env.example
+    environment:
+      DATABASE_URL: postgresql+psycopg2://queue_user:queue_password@db:5432/queue_db
+      HOST: 0.0.0.0
+      PORT: 5000
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+
+volumes:
+  postgres_data:

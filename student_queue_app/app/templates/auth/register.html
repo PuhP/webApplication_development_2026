@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Регистрация{% endblock %}
+{% block content %}
+<section class="auth-card wide">
+  <h1>Регистрация</h1>
+  <form method="post" class="form grid-form">
+    <label>ФИО<input type="text" name="full_name" required placeholder="Иванов Иван Иванович"></label>
+    <label>Email<input type="email" name="email" required placeholder="name@example.com"></label>
+    <label>Телефон<input type="text" name="phone" placeholder="+7 ..."></label>
+    <label>Пароль<input type="password" name="password" minlength="6" required></label>
+    <label>Роль
+      <select name="role" id="role-select">
+        <option value="student">Студент</option>
+        <option value="teacher">Преподаватель</option>
+        <option value="admin">Администратор/староста</option>
+      </select>
+    </label>
+    <label>Группа
+      <select name="group_id">
+        <option value="">Без группы</option>
+        {% for group in groups %}<option value="{{ group.id }}">{{ group.name }}</option>{% endfor %}
+      </select>
+    </label>
+    <label class="full">Код роли <span class="muted">(для преподавателя: teacher2026, для администратора: admin2026)</span>
+      <input type="text" name="invite_code" placeholder="Для студента не требуется">
+    </label>
+    <button class="btn" type="submit">Зарегистрироваться</button>
+  </form>
+</section>
+{% endblock %}

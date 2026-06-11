@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}Журнал успеваемости{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow">Преподавательский интерфейс</p>
+    <h1>Журнал успеваемости</h1>
+  </div>
+  <a class="btn btn-secondary" href="{{ url_for('main.journal_report_csv', subject_id=subject_id, group_id=group_id) }}">Скачать CSV</a>
+</div>
+
+<section class="card">
+  <form method="get" action="{{ url_for('main.journal') }}" class="form inline-form">
+    <label>Фильтр по группе
+      <select name="group_id">
+        <option value="">Все группы</option>
+        {% for group in groups %}
+          <option value="{{ group.id }}" {% if group_id == group.id %}selected{% endif %}>{{ group.name }}</option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <label>Фильтр по дисциплине
+      <select name="subject_id">
+        <option value="">Все дисциплины</option>
+        {% for subject in subjects %}
+          <option value="{{ subject.id }}" {% if subject_id == subject.id %}selected{% endif %}>{{ subject.name }} · {{ subject.group.name }}</option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <div class="inline-actions">
+      <button class="btn" type="submit">Показать</button>
+      <a class="btn btn-secondary" href="{{ url_for('main.journal') }}">Сбросить</a>
+    </div>
+  </form>
+</section>
+
+<section class="card">
+  <div class="section-title">
+    <h2>Найдено записей: {{ records|length }}</h2>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Студент</th>
+          <th>Группа</th>
+          <th>Предмет</th>
+          <th>ЛР</th>
+          <th>Оценка</th>
+          <th>Дата</th>
+          <th>Комментарий</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for record in records %}
+        <tr>
+          <td>{{ record.student.full_name }}</td>
+          <td>{{ record.student.group.name if record.student.group else '' }}</td>
+          <td>{{ record.subject.name }}</td>
+          <td>{{ record.lab_number }}</td>
+          <td>{{ record.grade }}</td>
+          <td>{{ record.date_passed.strftime('%d.%m.%Y') }}</td>
+          <td>{{ record.comment or '' }}</td>
+        </tr>
+      {% else %}
+        <tr><td colspan="7" class="empty">Записей по выбранным фильтрам пока нет.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

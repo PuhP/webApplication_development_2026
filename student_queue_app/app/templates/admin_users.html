@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Пользователи{% endblock %}
+{% block content %}
+<div class="page-head"><div><p class="eyebrow">Администрирование</p><h1>Пользователи</h1></div></div>
+
+<section class="card">
+  <h2>Добавить пользователя</h2>
+  <form method="post" class="form grid-form compact">
+    <label>ФИО<input name="full_name" required></label>
+    <label>Email<input type="email" name="email" required></label>
+    <label>Роль
+      <select name="role"><option value="student">Студент</option><option value="admin">Администратор</option><option value="teacher">Преподаватель</option></select>
+    </label>
+    <label>Группа
+      <select name="group_id"><option value="">Без группы</option>{% for group in groups %}<option value="{{ group.id }}">{{ group.name }}</option>{% endfor %}</select>
+    </label>
+    <label>Пароль<input name="password" value="student1234"></label>
+    <button class="btn" type="submit">Создать</button>
+  </form>
+</section>
+
+<section class="card">
+  <h2>Список пользователей</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ФИО</th><th>Email</th><th>Роль</th><th>Группа</th></tr></thead>
+      <tbody>
+      {% for user in users %}
+        <tr><td>{{ user.full_name }}</td><td>{{ user.email }}</td><td>{{ user.role_title }}</td><td>{{ user.group.name if user.group else '' }}</td></tr>
+      {% else %}
+        <tr><td colspan="4" class="empty">Пользователей нет.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

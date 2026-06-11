@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}Очереди и дисциплины{% endblock %}
+{% block content %}
+<div class="page-head"><div><p class="eyebrow">Управление</p><h1>Дисциплины и очереди</h1></div></div>
+
+<section class="grid two">
+  <article class="card">
+    <h2>Создать дисциплину</h2>
+    <form method="post" class="form">
+      <input type="hidden" name="action" value="subject">
+      <label>Название<input name="name" required placeholder="Разработка веб-приложений"></label>
+      <label>Группа
+        <select name="group_id" required>{% for group in groups %}<option value="{{ group.id }}">{{ group.name }}</option>{% endfor %}</select>
+      </label>
+      <label>Преподаватель
+        <select name="teacher_id">
+          {% for teacher in teachers %}<option value="{{ teacher.id }}" {% if teacher.id == current_user.id %}selected{% endif %}>{{ teacher.full_name }}</option>{% endfor %}
+        </select>
+      </label>
+      <button class="btn" type="submit">Создать</button>
+    </form>
+  </article>
+
+  <article class="card">
+    <h2>Создать очередь</h2>
+    <form method="post" class="form">
+      <input type="hidden" name="action" value="session">
+      <label>Дисциплина
+        <select name="subject_id" required>{% for subject in subjects %}<option value="{{ subject.id }}">{{ subject.name }} · {{ subject.group.name }}</option>{% endfor %}</select>
+      </label>
+      <label>Название очереди<input name="title" value="Защита лабораторных работ" required></label>
+      <label>Дата и время начала<input type="datetime-local" name="starts_at" required></label>
+      <button class="btn" type="submit">Создать очередь</button>
+    </form>
+  </article>
+</section>
+
+<section class="card">
+  <h2>Список очередей</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Название</th><th>Предмет</th><th>Группа</th><th>Начало</th><th>Статус</th><th></th></tr></thead>
+      <tbody>
+      {% for session in sessions %}
+        <tr>
+          <td>{{ session.id }}</td>
+          <td>{{ session.title }}</td>
+          <td>{{ session.subject.name }}</td>
+          <td>{{ session.group.name }}</td>
+          <td>{{ session.starts_at.strftime('%d.%m.%Y %H:%M') }}</td>
+          <td>{{ session.status_title }}</td>
+          <td class="inline-actions">
+            <a class="btn btn-small" href="{{ url_for('main.session_detail', session_id=session.id) }}">Открыть</a>
+            <form method="post" action="{{ url_for('main.toggle_session', session_id=session.id) }}"><button class="btn btn-small btn-secondary">{% if session.is_active %}Завершить{% else %}Открыть{% endif %}</button></form>
+          </td>
+        </tr>
+      {% else %}
+        <tr><td colspan="7" class="empty">Очередей нет.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow">Личный кабинет</p>
+    <h1>Здравствуйте, {{ current_user.full_name }}</h1>
+    <p class="muted">Роль: {{ current_user.role_title }}{% if current_user.group %}, группа: {{ current_user.group.name }}{% endif %}</p>
+  </div>
+</div>
+
+{% if current_user.role == 'student' and user_entries %}
+<section class="card highlight">
+  <h2>Ваши активные записи</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Дисциплина</th><th>Очередь</th><th>Позиция</th><th>Статус</th><th></th></tr></thead>
+      <tbody>
+      {% for entry in user_entries %}
+        <tr>
+          <td>{{ entry.session.subject.name }}</td>
+          <td>{{ entry.session.title }}</td>
+          <td>{{ entry.position }}</td>
+          <td><span class="badge status-{{ entry.status }}">{{ entry.status_title }}</span></td>
+          <td><a class="btn btn-small" href="{{ url_for('main.session_detail', session_id=entry.session_id) }}">Открыть</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endif %}
+
+<section class="grid cards-grid">
+  {% for session in sessions %}
+    <article class="card session-card">
+      <div class="session-status {{ 'ok' if session.is_active else 'closed' }}">{{ session.status_title }}</div>
+      <h2>{{ session.title }}</h2>
+      <p><strong>{{ session.subject.name }}</strong></p>
+      <p class="muted">Группа {{ session.group.name }} · {{ session.starts_at.strftime('%d.%m.%Y %H:%M') }}</p>
+      <p>Участников в активной очереди: {{ session.entries|length }}</p>
+      <a class="btn" href="{{ url_for('main.session_detail', session_id=session.id) }}">Перейти к очереди</a>
+    </article>
+  {% else %}
+    <article class="card"><h2>Очередей пока нет</h2><p>Преподаватель или администратор может создать дисциплину и очередь в разделе «Очереди и дисциплины».</p></article>
+  {% endfor %}
+</section>
+{% endblock %}

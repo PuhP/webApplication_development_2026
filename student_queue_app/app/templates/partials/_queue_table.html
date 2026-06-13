@@ -1,0 +1,54 @@
+<div class="table-wrap">
+  <table class="queue-table">
+    <thead>
+      <tr>
+        <th>№</th>
+        <th>Студент</th>
+        <th>ЛР</th>
+        <th>Сдать</th>
+        <th>Уже сдано</th>
+        <th>Время</th>
+        <th>Предпочтение</th>
+        <th>Подтв.</th>
+        <th>Статус</th>
+        {% if current_user.role in ['teacher', 'admin'] %}<th>Действия</th>{% endif %}
+      </tr>
+    </thead>
+    <tbody>
+    {% for entry in session.entries if entry.status in ['waiting', 'checking'] %}
+      <tr class="{% if current_user.is_authenticated and entry.student_id == current_user.id %}own-row{% endif %}">
+        <td data-label="№">{{ entry.position }}</td>
+        <td data-label="Студент">
+          <strong>{{ entry.student.full_name }}</strong>
+          {% if entry.note %}<div class="muted small">{{ entry.note }}</div>{% endif %}
+        </td>
+        <td data-label="ЛР">{{ entry.lab_number }}</td>
+        <td data-label="Сдать">{{ entry.work_count }}</td>
+        <td data-label="Уже сдано">{{ passed_count(entry.student_id, session.subject_id) if passed_count is defined else '' }}</td>
+        <td data-label="Время">{{ entry.estimated_minutes }} мин.</td>
+        <td data-label="Предпочтение">{{ entry.preference_title }}</td>
+        <td data-label="Подтв.">{% if entry.is_confirmed %}<span class="badge ok">Да</span>{% else %}<span class="badge warn">Нет</span>{% endif %}</td>
+        <td data-label="Статус"><span class="badge status-{{ entry.status }}">{{ entry.status_title }}</span></td>
+        {% if current_user.role in ['teacher', 'admin'] %}
+        <td class="row-actions">
+          <form method="post" action="{{ url_for('main.move_queue_entry', entry_id=entry.id, direction='up') }}"><button title="Вверх">↑</button></form>
+          <form method="post" action="{{ url_for('main.move_queue_entry', entry_id=entry.id, direction='down') }}"><button title="Вниз">↓</button></form>
+          <form method="post" action="{{ url_for('main.call_queue_entry', entry_id=entry.id) }}"><button>Вызвать</button></form>
+          <details>
+            <summary>Сдал</summary>
+            <form method="post" action="{{ url_for('main.pass_queue_entry', entry_id=entry.id) }}" class="mini-form">
+              <input name="grade" placeholder="оценка" value="зачтено">
+              <input name="comment" placeholder="комментарий">
+              <button>OK</button>
+            </form>
+          </details>
+          <form method="post" action="{{ url_for('main.leave_queue', entry_id=entry.id) }}"><button class="danger">Удалить</button></form>
+        </td>
+        {% endif %}
+      </tr>
+    {% else %}
+      <tr><td colspan="10" class="empty">В очереди пока никого нет.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>

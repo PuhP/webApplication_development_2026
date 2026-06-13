@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block title %}Очереди и дисциплины{% endblock %}
+{% block content %}
+<div class="page-head"><div><p class="eyebrow">Управление</p><h1>Дисциплины и очереди</h1></div></div>
+
+<section class="grid two">
+  <article class="card">
+    <h2>Создать дисциплину</h2>
+    <form method="post" class="form">
+      <input type="hidden" name="action" value="subject">
+      <label>Название<input name="name" required placeholder="Разработка веб-приложений"></label>
+      <label>Группа
+        <select name="group_id" required>{% for group in groups %}<option value="{{ group.id }}">{{ group.name }}</option>{% endfor %}</select>
+      </label>
+      <label>Преподаватель
+        <select name="teacher_id">
+          {% for teacher in teachers %}<option value="{{ teacher.id }}" {% if teacher.id == current_user.id %}selected{% endif %}>{{ teacher.full_name }}</option>{% endfor %}
+        </select>
+      </label>
+      <label>Количество лабораторных работ
+        <input type="number" name="lab_count" min="1" max="30" value="10" required>
+        <span class="muted small">Сколько лабораторных нужно сдать (1–30)</span>
+      </label>
+      <label>Минут на каждую лабораторную
+        <input type="number" name="minutes_per_lab" min="1" max="120" value="15" required>
+        <span class="muted small">Среднее время сдачи одной работы (1–120 мин.)</span>
+      </label>
+      <button class="btn" type="submit">Создать</button>
+    </form>
+  </article>
+
+  <article class="card">
+    <h2>Создать очередь</h2>
+    <form method="post" class="form" id="session-form">
+      <input type="hidden" name="action" value="session">
+      <label>Дисциплина
+        <select name="subject_id" required>{% for subject in subjects %}<option value="{{ subject.id }}">{{ subject.name }} · {{ subject.group.name }}</option>{% endfor %}</select>
+      </label>
+      <label>Название очереди<input name="title" value="Защита лабораторных работ" required></label>
+      <label>Дата и время начала
+        <input type="datetime-local" name="starts_at" required id="starts-at-input">
+        <span class="muted small">Дата не может быть в прошлом</span>
+      </label>
+      <button class="btn" type="submit">Создать очередь</button>
+    </form>
+  </article>
+</section>
+
+<section class="card">
+  <h2>Список дисциплин</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Название</th><th>Группа</th><th>Преподаватель</th><th>Лаб. работ</th><th>Мин./ЛР</th></tr></thead>
+      <tbody>
+      {% for subject in subjects %}
+        <tr>
+          <td data-label="Название">{{ subject.name }}</td>
+          <td data-label="Группа">{{ subject.group.name }}</td>
+          <td data-label="Преподаватель">{{ subject.teacher.full_name if subject.teacher else '—' }}</td>
+          <td data-label="Лаб. работ">{{ subject.lab_count }}</td>
+          <td data-label="Мин./ЛР">{{ subject.minutes_per_lab }}</td>
+        </tr>
+      {% else %}
+        <tr><td colspan="5" class="empty">Дисциплин нет.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Список очередей</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Название</th><th>Предмет</th><th>Группа</th><th>Начало</th><th>Статус</th><th></th></tr></thead>
+      <tbody>
+      {% for session in sessions %}
+        <tr>
+          <td data-label="ID">{{ session.id }}</td>
+          <td data-label="Название">{{ session.title }}</td>
+          <td data-label="Предмет">{{ session.subject.name }}</td>
+          <td data-label="Группа">{{ session.group.name }}</td>
+          <td data-label="Начало">{{ session.starts_at.strftime('%d.%m.%Y %H:%M') }}</td>
+          <td data-label="Статус">{{ session.status_title }}</td>
+          <td class="row-actions">
+            <a class="btn btn-small btn-secondary" href="{{ url_for('main.session_detail', session_id=session.id) }}">Просмотреть</a>
+            {% if session.subject.teacher_id == current_user.id or current_user.role == 'admin' %}
+              <form method="post" action="{{ url_for('main.toggle_session', session_id=session.id) }}">
+                <button class="btn btn-small {% if session.is_active %}btn-danger{% endif %}">
+                  {% if session.is_active %}Завершить{% else %}Возобновить{% endif %}
+                </button>
+              </form>
+            {% endif %}
+          </td>
+        </tr>
+      {% else %}
+        <tr><td colspan="7" class="empty">Очередей нет.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

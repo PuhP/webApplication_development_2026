@@ -1,0 +1,7 @@
+-- Демо-данные лучше создавать через приложение, потому что пароли хешируются Werkzeug.
+-- После запуска будут доступны:
+-- admin@example.com / admin1234
+-- teacher@example.com / teacher1234
+-- student@example.com / student1234
+--
+-- Команда: python run.py

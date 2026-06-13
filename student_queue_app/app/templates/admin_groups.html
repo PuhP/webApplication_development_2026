@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Группы{% endblock %}
+{% block content %}
+<div class="page-head"><div><p class="eyebrow">Администрирование</p><h1>Учебные группы</h1></div></div>
+<section class="grid two">
+  <article class="card">
+    <h2>Создать группу</h2>
+    <form method="post" class="form">
+      <label>Название группы<input name="name" required placeholder="241-326"></label>
+      <button class="btn" type="submit">Добавить</button>
+    </form>
+  </article>
+  <article class="card">
+    <h2>Существующие группы</h2>
+    <ul class="list">
+      {% for group in groups %}<li>{{ group.name }} <span class="muted">студентов: {{ group.students|length }}</span></li>{% else %}<li>Групп нет.</li>{% endfor %}
+    </ul>
+  </article>
+</section>
+{% endblock %}

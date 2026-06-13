@@ -1,0 +1,44 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\MakeUppercase []{Введение}}{6}{Doc-Start}%
+\contentsline {section}{\MakeUppercase []{Глава 1. Анализ предметной области}}{8}{Doc-Start}%
+\contentsline {subsection}{\numberline {1.1}Анализ существующих инструментов и алгоритмов организации учебных очередей}{8}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Анализ существующих алгоритмов организации учебных очередей и обоснование эффективности разработки}{8}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Анализ существующих инструментов организации учебных очередей и обоснование эффективности разработки}{9}{subsubsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.2}Обоснование выбора стека технологий}{11}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Выбор клиентских технологий}{11}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Выбор серверных технологий и СУБД}{13}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Научная новизна и практическая значимость}{15}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Описание архитектурных решений и требований к БД}{16}{subsubsection.1.2.4}%
+\contentsline {section}{\MakeUppercase []{Глава 2. Проектирование}}{17}{Item.6}%
+\contentsline {subsubsection}{\numberline {2.1.1}Теоретический анализ целевой аудитории и разработка User Stories}{17}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Для роли «Студент»}{18}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Для роли «Администратор» и «Преподаватель»}{18}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}Проектирование ER-диаграммы для сущности «Студент» и физической схемы БД}{19}{subsubsection.2.1.4}%
+\contentsline {subsubsection}{\numberline {2.1.5}Разработка макета Wireframe для очереди и Студента}{21}{subsubsection.2.1.5}%
+\contentsline {subsubsection}{\numberline {2.1.6}Описание ролей и сценариев взаимодействия Студент--Преподаватель--Администратор}{21}{subsubsection.2.1.6}%
+\contentsline {subsection}{\numberline {2.2}Разработка UML Use Case}{23}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Для роли «Студент»}{23}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Для роли «Администратор» и «Преподаватель»}{24}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Проектирование модели данных}{24}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Проектирование ER-диаграммы для сущностей «Администратор и Преподаватель» и логической схемы БД}{25}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Проектирование ER-диаграммы для сущности «Студент» и физической схемы БД}{25}{subsubsection.2.3.2}%
+\contentsline {paragraph}{Пояснение по логике подтверждения:}{27}{Item.18}%
+\contentsline {subsection}{\numberline {2.4}Разработка макетов Wireframes}{27}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Разработка макета Wireframe для очереди и Студента}{28}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Разработка макета Wireframe для Преподавателя и администратора}{28}{subsubsection.2.4.2}%
+\contentsline {section}{\MakeUppercase []{Глава 3. Разработка веб-приложения}}{30}{figure.caption.12}%
+\contentsline {subsection}{\numberline {3.1}Разработка базовой структуры приложения и вёрстка шаблонов страниц}{30}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Разработка шаблона страницы преподавателя и администратора, написание логики связи ``клиент-сервер''}{30}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Разработка шаблона страницы студента и написание логики очереди}{31}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Реализация модуля авторизации и разграничения прав доступа}{32}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Реализация модуля авторизации для Преподавателя и Студента}{32}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Реализация модуля авторизации для администратора, разграничения прав доступа для всех ролей}{33}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Разработка CRUD интерфейса}{33}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Разработка CRUD взаимодействия ``Клиент-Сервер'' для очередей}{34}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Разработка CRUD взаимодействия ``Клиент-Сервер'' для сущностей}{35}{subsubsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.4}Загрузка работ и выгрузка отчётов}{35}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Вёрстка адаптивного интерфейса (Jinja2, HTML, CSS)}{37}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Реализация WebSocket-обновления очереди в реальном времени}{38}{subsection.3.6}%
+\contentsline {section}{\MakeUppercase []{Заключение}}{41}{lstnumber.15.5}%
+\babel@toc {russian}{}\relax 
+\babel@toc {russian}{}\relax 

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}Профиль{% endblock %}
+{% block content %}
+<div class="page-head"><div><p class="eyebrow">Профиль</p><h1>{{ current_user.full_name }}</h1><p class="muted">{{ current_user.email }}</p></div></div>
+
+<section class="grid two">
+  <article class="card">
+    <h2>Загрузить работу</h2>
+    <form method="post" enctype="multipart/form-data" class="form" id="upload-form">
+      <label>Дисциплина
+        <select name="subject_id" required id="upload-subject-select">
+          {% for subject in subjects %}
+            <option value="{{ subject.id }}" data-lab-count="{{ subject.lab_count }}">{{ subject.name }} · {{ subject.group.name }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        Номер лабораторной
+        <input type="number" name="lab_number" min="1" value="1" required id="upload-lab-number">
+        <span class="muted small" id="upload-lab-hint">{% if subjects %}от 1 до {{ subjects[0].lab_count }}{% endif %}</span>
+      </label>
+      <label>Файл<input type="file" name="work_file" required></label>
+      <label>Комментарий<input type="text" name="comment" placeholder="Краткое описание" maxlength="300"></label>
+      <button class="btn" type="submit">Загрузить</button>
+    </form>
+  </article>
+
+  <article class="card">
+    <h2>Мои оценки</h2>
+    <ul class="list">
+      {% for grade in grades %}<li>{{ grade.subject.name }} · ЛР {{ grade.lab_number }} — <strong>{{ grade.grade }}</strong> <span class="muted">{{ grade.date_passed.strftime('%d.%m.%Y') }}</span></li>{% else %}<li>Оценок пока нет.</li>{% endfor %}
+    </ul>
+  </article>
+</section>
+
+<section class="card">
+  <h2>Загруженные файлы</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Дата</th><th>Предмет</th><th>ЛР</th><th>Файл</th><th>Комментарий</th></tr></thead>
+      <tbody>
+      {% for upload in uploads %}
+        <tr>
+          <td data-label="Дата">{{ upload.uploaded_at.strftime('%d.%m.%Y %H:%M') }}</td>
+          <td data-label="Предмет">{{ upload.subject.name }}</td>
+          <td data-label="ЛР">{{ upload.lab_number }}</td>
+          <td data-label="Файл"><a href="{{ url_for('main.uploaded_file', filename=upload.filename) }}">{{ upload.original_filename }}</a></td>
+          <td data-label="Комментарий">{{ upload.comment or '' }}</td>
+        </tr>
+      {% else %}<tr><td colspan="5" class="empty">Файлов нет.</td></tr>{% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script>
+(function () {
+  var labCounts = {{ subject_lab_counts | tojson }};
+  var subjectSelect = document.getElementById('upload-subject-select');
+  var labInput = document.getElementById('upload-lab-number');
+  var labHint = document.getElementById('upload-lab-hint');
+
+  function updateLabMax() {
+    var sid = subjectSelect.value;
+    var maxLab = labCounts[sid] || 10;
+    labInput.max = maxLab;
+    labHint.textContent = 'от 1 до ' + maxLab;
+    if (parseInt(labInput.value, 10) > maxLab) labInput.value = maxLab;
+  }
+
+  subjectSelect.addEventListener('change', updateLabMax);
+  updateLabMax();
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,307 @@
+\section*{Глава 3. Разработка веб-приложения}
+\addcontentsline{toc}{section}{Глава 3. Разработка веб-приложения}
+\stepcounter{section}
+
+\subsection{Разработка базовой структуры приложения и вёрстка шаблонов страниц}
+
+В соответствии с задачей 3.1, спроектирована компонентная структура клиентской части на базе шаблонизатора \textbf{Jinja2} с наследованием шаблонов. Базовый шаблон \texttt{base.html} определяет общий макет: адаптивный заголовок с навигацией, блок для flash-сообщений, основную область и подвал. Медиа-запросы и классы CSS (сетка \texttt{grid}, карточки \texttt{card}, адаптивные таблицы) обеспечивают корректное отображение на экранах разной ширины.
+
+\subsubsection{Разработка шаблона страницы преподавателя и администратора, написание логики связи ``клиент-сервер''}
+
+В рамках задачи 3.1.1 созданы шаблоны \texttt{teacher\_sessions.html}, \texttt{admin\_groups.html} и \texttt{admin\_users.html}. Ролевая фильтрация пунктов меню реализована через проверку \texttt{current\_user.role} внутри Jinja2 (листинг~\ref{lst:base_nav}).
+
+\begin{lstlisting}[caption={Фрагмент навигации с ролевым разделением (base.html)}, label={lst:base_nav}]
+{% if current_user.is_authenticated %}
+  {% if current_user.role in ['teacher', 'admin'] %}
+    <a href="{{ url_for('main.teacher_sessions') }}">Очереди и дисциплины</a>
+    <a href="{{ url_for('main.journal') }}">Журнал</a>
+  {% endif %}
+  {% if current_user.role == 'admin' %}
+    <a href="{{ url_for('main.admin_groups') }}">Группы</a>
+    <a href="{{ url_for('main.admin_users') }}">Пользователи</a>
+  {% endif %}
+{% endif %}
+\end{lstlisting}
+
+Страница преподавателя (листинг~\ref{lst:teacher_form}) содержит две формы создания: дисциплины и очереди. Скрытое поле \texttt{action} позволяет серверу различать тип операции. Логика связи ``клиент-сервер'' реализована синхронными POST-запросами; после выполнения формы сервер возвращает редирект для обновления списка.
+
+\begin{lstlisting}[caption={Фрагмент teacher\_sessions.html — создание дисциплины}, label={lst:teacher_form}]
+<form method="post" class="form">
+  <input type="hidden" name="action" value="subject">
+  <label>Название<input name="name" required></label>
+  <label>Группа<select name="group_id">...</select></label>
+  <button class="btn" type="submit">Создать</button>
+</form>
+\end{lstlisting}
+
+Административные шаблоны используют аналогичный подход; например, \texttt{admin\_users.html} через \texttt{<select>} позволяет назначить роль и группу. Все операции над пользователями и группами защищены декоратором \texttt{@role\_required("admin")} (см. листинг~\ref{lst:role_decorator}).
+
+\subsubsection{Разработка шаблона страницы студента и написание логики очереди}
+
+Страница студента представлена шаблоном \texttt{dashboard.html} (список доступных очередей) и \texttt{session\_detail.html} (детальное отображение очереди). Форма записи в очередь (листинг~\ref{lst:join_form}) содержит поля: номер лабораторной, количество работ, предпочтение по времени, предполагаемая длительность, комментарий. Данные отправляются на маршрут \texttt{/sessions/<id>/join} методом POST.
+
+\begin{lstlisting}[caption={Форма записи в очередь (session\_detail.html)}, label={lst:join_form}]
+<form method="post" action="{{ url_for('main.join_queue', session_id=session.id) }}">
+  <label>Номер лабораторной<input type="number" name="lab_number" value="1" required></label>
+  <label>Количество работ<input type="number" name="work_count" value="1" required></label>
+  <label>Предпочтение времени
+    <select name="time_preference">
+      <option value="any">Без разницы</option>
+      <option value="early">Раньше</option>
+      <option value="later">Позже</option>
+    </select>
+  </label>
+  <label>Примерное время (мин)<input type="number" name="estimated_minutes" value="10" required></label>
+  <label>Комментарий<input type="text" name="note"></label>
+  <button class="btn" type="submit">Встать в очередь</button>
+</form>
+\end{lstlisting}
+
+Логика очереди реализована на сервере в модуле \texttt{queue\_service.py} и описана в подразделе 3.3.1. Для обновления очереди в реальном времени используется WebSocket (см. \texttt{realtime.py}), который отправляет клиентам актуальное состояние после каждого изменения (добавление, удаление, вызов студента). На клиентской стороне JavaScript подключается к сокету \texttt{/ws/session/<id>} и динамически обновляет таблицу.
+
+\subsection{Реализация модуля авторизации и разграничения прав доступа}
+
+Согласно задаче 3.2, в системе реализована ролевая модель с использованием расширения \textbf{Flask-Login}. Пароли хешируются с помощью \texttt{werkzeug.security}. Для защиты маршрутов и шаблонов применяются декоратор \texttt{@role\_required} и атрибуты объекта \texttt{current\_user}.
+
+\subsubsection{Реализация модуля авторизации для Преподавателя и Студента}
+
+Маршрут \texttt{/register} (листинг~\ref{lst:register}) принимает ФИО, email, пароль, роль и пригласительные коды для преподавателя (\texttt{TEACHER\_INVITE\_CODE}) или администратора (\texttt{ADMIN\_INVITE\_CODE}). Для студентов код не требуется. После успешной регистрации пользователь автоматически входит в систему.
+
+\begin{lstlisting}[caption={Регистрация пользователя (auth.py)}, label={lst:register}]
+if role == "teacher" and invite_code != current_app.config["TEACHER_INVITE_CODE"]:
+    flash("Неверный код преподавателя.", "danger")
+    return redirect(url_for("auth.register"))
+user = User(full_name=full_name, email=email, role=role, group_id=group_id)
+user.set_password(password)
+db.session.add(user)
+db.session.commit()
+login_user(user)
+\end{lstlisting}
+
+Вход выполняется через маршрут \texttt{/login} (листинг~\ref{lst:login}), который проверяет email и пароль, после чего вызывает \texttt{login\_user}. Выход — \texttt{/logout} с удалением сессии. Преподаватели и студенты после входа перенаправляются на \texttt{dashboard}.
+
+\begin{lstlisting}[caption={Аутентификация пользователя (auth.py)}, label={lst:login}]
+user = User.query.filter(func.lower(User.email) == email).first()
+if user and user.check_password(password):
+    login_user(user, remember=bool(request.form.get("remember")))
+    return redirect(next_url or url_for("main.dashboard"))
+\end{lstlisting}
+
+\subsubsection{Реализация модуля авторизации для администратора, разграничения прав доступа для всех ролей}
+
+Для администратора создан отдельный маршрут регистрации с проверкой кода \texttt{ADMIN\_INVITE\_CODE}. Разграничение доступа на уровне маршрутов обеспечивается декоратором \texttt{@role\_required} (листинг~\ref{lst:role_decorator}), который принимает список допустимых ролей.
+
+\begin{lstlisting}[caption={Декоратор role\_required (security.py)}, label={lst:role_decorator}]
+def role_required(*roles: str):
+    def decorator(view):
+        @wraps(view)
+        def wrapped(*args, **kwargs):
+            if not current_user.is_authenticated or current_user.role not in roles:
+                abort(403)
+            return view(*args, **kwargs)
+        return wrapped
+    return decorator
+\end{lstlisting}
+
+Пример использования: \texttt{@role\_required("teacher", "admin")} перед маршрутами управления очередями и журналом. Для администратора доступны дополнительные маршруты: \texttt{/admin/groups}, \texttt{/admin/users}. В шаблонах проверка роли осуществляется через \texttt{current\_user.role} для условного отображения элементов интерфейса.
+
+\subsection{Разработка CRUD интерфейса}
+
+Реализованы полноценные CRUD-операции над основными сущностями: очереди, группы, пользователи, дисциплины. Взаимодействие клиент-сервер построено на HTTP-методах POST (создание, обновление) и GET (чтение), а также POST-запросах на удаление/изменение статуса.
+
+\subsubsection{Разработка CRUD взаимодействия ``Клиент-Сервер'' для очередей}
+
+Управление очередями осуществляется через маршруты, описанные в \texttt{main.py}. Основные операции:
+
+\begin{itemize}
+    \item \textbf{Создание очереди}: POST \texttt{/teacher/sessions} (с параметром \texttt{action=session}) — добавляет запись в таблицу \texttt{QueueSession}.
+    \item \textbf{Запись студента}: POST \texttt{/sessions/<id>/join} — создаёт запись \texttt{QueueEntry}, вычисляет позицию через функцию \texttt{next\_position} (листинг~\ref{lst:next_pos}).
+    \item \textbf{Вызов следующего}: POST \texttt{/sessions/<id>/call-next} — находит первый элемент в очереди со статусом \texttt{waiting} и переводит его в \texttt{checking} (функция \texttt{call\_entry}).
+    \item \textbf{Перемещение записи}: POST \texttt{/entries/<id>/move/<direction>} — меняет позиции двух соседних записей.
+    \item \textbf{Завершение проверки}: POST \texttt{/entries/<id>/pass} — сохраняет оценку в \texttt{GradeRecord}, меняет статус на \texttt{passed} и пересчитывает позиции.
+\end{itemize}
+
+Логика очереди реализована в \texttt{queue\_service.py}. Для гарантии FIFO-порядка используется поле \texttt{position}, которое пересчитывается функцией \texttt{normalize\_positions} (листинг~\ref{lst:normalize}).
+
+\begin{lstlisting}[caption={Пересчёт позиций в очереди}, label={lst:normalize}]
+def normalize_positions(session_id: int) -> None:
+    entries = QueueEntry.query.filter(
+        QueueEntry.session_id == session_id,
+        QueueEntry.status.in_(["waiting", "checking"])
+    ).order_by(QueueEntry.position.asc(),
+               QueueEntry.created_at.asc()).all()
+    for index, entry in enumerate(entries, start=1):
+        entry.position = index
+\end{lstlisting}
+
+Функция \texttt{next\_position} (листинг~\ref{lst:next_pos}) вычисляет максимальное значение позиции для активных записей и возвращает его, увеличенное на единицу.
+
+\begin{lstlisting}[caption={Вычисление следующей позиции}, label={lst:next_pos}]
+def next_position(session_id: int) -> int:
+    max_pos = db.session.query(func.max(QueueEntry.position))
+        .filter(QueueEntry.session_id == session_id,
+                QueueEntry.status.in_(VISIBLE_QUEUE_STATUSES))
+        .scalar()
+    return int(max_pos or 0) + 1
+\end{lstlisting}
+
+\subsubsection{Разработка CRUD взаимодействия ``Клиент-Сервер'' для сущностей}
+
+Для групп, пользователей и дисциплин реализованы стандартные CRUD-операции:
+
+\begin{itemize}
+    \item \textbf{Группы}: POST \texttt{/admin/groups} создаёт новую группу; GET отображает список всех групп.
+    \item \textbf{Пользователи}: POST \texttt{/admin/users} создаёт пользователя с указанием роли, группы и пароля; GET — список всех пользователей.
+    \item \textbf{Дисциплины}: POST \texttt{/teacher/sessions} (\texttt{action=subject}) создаёт дисциплину, привязывая её к группе и преподавателю.
+\end{itemize}
+
+Пример создания пользователя через административный интерфейс приведён в листинге~\ref{lst:admin_create_user}.
+
+\begin{lstlisting}[caption={Создание пользователя администратором (main.py)}, label={lst:admin_create_user}]
+user = User(email=email, full_name=full_name, role=role, group_id=group_id)
+user.set_password(password)
+db.session.add(user)
+db.session.commit()
+\end{lstlisting}
+
+Все CRUD-операции защищены декораторами \texttt{@login\_required} и \texttt{@role\_required}, а также проверяют корректность входных данных перед записью в базу.
+
+\subsection{Загрузка работ и выгрузка отчётов}
+
+В соответствии с задачей 3.4, реализован функционал загрузки студенческих работ и выгрузки отчётов в формате CSV.
+
+\textbf{Загрузка работ:} студент на странице профиля (\texttt{/profile}) через форму с \texttt{enctype="multipart/form-data"} отправляет файл, номер лабораторной и дисциплину. На сервере (листинг~\ref{lst:upload}) файл сохраняется в папке \texttt{UPLOAD\_FOLDER} с безопасным именем, а запись добавляется в таблицу \texttt{WorkUpload}. Скачать загруженный файл можно по маршруту \texttt{/uploads/<filename>} с проверкой прав доступа.
+
+\begin{lstlisting}[caption={Обработка загрузки работы (main.py)}, label={lst:upload}]
+original = secure_filename(file.filename)
+safe_name = f"{current_user.id}_{uuid4().hex}_{original}"
+upload_path = Path(current_app.config["UPLOAD_FOLDER"]) / safe_name
+file.save(upload_path)
+upload = WorkUpload(
+    student_id=current_user.id,
+    subject_id=subject_id,
+    lab_number=lab_number,
+    filename=safe_name,
+    original_filename=original,
+    comment=comment
+)
+db.session.add(upload)
+\end{lstlisting}
+
+\textbf{Выгрузка отчётов:} для преподавателя и администратора доступны два CSV-отчёта:
+
+\begin{itemize}
+    \item \texttt{/reports/journal.csv} — журнал успеваемости: студент, группа, предмет, лабораторная, оценка, дата, комментарий.
+    \item \texttt{/reports/queue/<session\_id>.csv} — состояние очереди: позиция, студент, номер ЛР, количество работ, предпочтение, время, подтверждение, статус.
+\end{itemize}
+
+Генерация CSV выполняется через модуль \texttt{csv} и возвращается как \texttt{Response} с типом \texttt{text/csv}. Пример формирования отчёта очереди приведён в листинге~\ref{lst:csv_report}.
+
+\begin{lstlisting}[caption={Генерация CSV-отчёта очереди}, label={lst:csv_report}]
+output = StringIO()
+writer = csv.writer(output, delimiter=";")
+writer.writerow(["Позиция", "Студент", "Лабораторная", "Кол-во работ", "Предпочтение", "Время", "Подтвержден", "Статус"])
+for entry in session.entries:
+    writer.writerow([entry.position, entry.student.full_name, entry.lab_number,
+                     entry.work_count, entry.preference_title, entry.estimated_minutes,
+                     "да" if entry.is_confirmed else "нет", entry.status_title])
+return Response(output.getvalue(), mimetype="text/csv; charset=utf-8",
+                headers={"Content-Disposition": f"attachment; filename=queue_{session.id}.csv"})
+\end{lstlisting}
+
+\subsection{Вёрстка адаптивного интерфейса (Jinja2, HTML, CSS)}
+
+Финальный этап разработки (задача 3.5) заключался в создании адаптивного пользовательского интерфейса с использованием \textbf{HTML5}, \textbf{CSS3} и шаблонизатора \textbf{Jinja2}. Основные принципы:
+
+\begin{itemize}
+    \item Использование CSS-классов для каркаса: \texttt{.container} (центрирование, максимальная ширина), \texttt{.grid} (адаптивная сетка), \texttt{.card} (карточка с тенью и скруглениями).
+    \item Адаптивные таблицы: обёртка \texttt{.table-wrap} с горизонтальной прокруткой на узких экранах.
+    \item Мобильное меню: кнопка \texttt{.nav-toggle} (JavaScript переключает класс \texttt{.nav--open} для отображения навигации).
+    \item Формы используют классы \texttt{.form}, \texttt{.inline-form}, \texttt{.compact} для компактного отображения на мобильных устройствах.
+    \item Цветовая схема и отступы обеспечивают читаемость на экранах от 320px до 1920px.
+\end{itemize}
+
+Пример CSS-класса для карточек очереди (листинг~\ref{lst:css_card}) демонстрирует адаптивные свойства: \texttt{flex} или \texttt{grid}, скругление, тень.
+
+\begin{lstlisting}[caption={CSS-стили для карточек очереди}, label={lst:css_card}]
+.card {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    transition: box-shadow 0.2s;
+}
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .table-wrap {
+        overflow-x: auto;
+    }
+}
+\end{lstlisting}
+
+Навигационное меню в \texttt{base.html} содержит кнопку-гамбургер и JavaScript-обработчик для адаптивного отображения на мобильных устройствах. Все интерактивные элементы (кнопки, формы) имеют достаточный размер для удобного нажатия пальцем.
+
+Таким образом, разработанное веб-приложение полностью соответствует требованиям технического задания: реализованы ролевая модель, FIFO-очередь с подтверждением, CRUD-интерфейс, загрузка файлов, выгрузка отчётов и адаптивная вёрстка на Jinja2/HTML/CSS. Исходный код развёртывается через Docker Compose или локально с PostgreSQL.
+
+
+\subsection{Реализация WebSocket-обновления очереди в реальном времени}
+
+Для обеспечения синхронного отображения очереди у всех подключённых пользователей (студентов, преподавателя, администратора) реализован механизм реального времени на базе протокола \textbf{WebSocket} с использованием библиотеки \textit{Flask-Sock}. При изменении состояния очереди (добавление, удаление, перемещение, вызов студента) сервер инициирует широковещательную рассылку актуальных данных всем клиентам, подписанным на данную сессию.
+
+Схема работы представлена на листинге~\ref{lst:websocket_broadcast}. Функция \texttt{broadcast\_session\_update} сериализует текущее состояние очереди с помощью \texttt{serialize\_session} (определена в \texttt{queue\_service.py}) и отправляет его во все клиентские очереди, зарегистрированные для указанного \texttt{session\_id}.
+
+\begin{lstlisting}[caption={Широковещательная рассылка обновлений (realtime.py)}, label={lst:websocket_broadcast}]
+_clients: dict[int, set[Queue]] = defaultdict(set)
+_lock = RLock()
+
+def broadcast(session_id: int, payload: dict[str, Any]) -> None:
+    with _lock:
+        targets = list(_clients.get(session_id, set()))
+    for client_queue in targets:
+        client_queue.put(payload)
+
+def broadcast_session_update(session_id: int) -> None:
+    session = QueueSession.query.get(session_id)
+    if session:
+        broadcast(session_id, serialize_session(session))
+\end{lstlisting}
+
+WebSocket-маршрут \texttt{/ws/session/<int:session\_id>} (листинг~\ref{lst:ws_route}) принимает подключение от клиента, регистрирует его очередь сообщений в глобальном словаре и отправляет начальный снимок состояния. При каждом обновлении сервер помещает сериализованный JSON в очередь клиента, а клиентский JavaScript получает сообщение и динамически обновляет таблицу очереди без перезагрузки страницы.
+
+\begin{lstlisting}[caption={Обработчик WebSocket-соединения (realtime.py)}, label={lst:ws_route}]
+@sock.route("/ws/session/<int:session_id>")
+def session_socket(ws, session_id: int):
+    if not current_user.is_authenticated:
+        ws.close()
+        return
+    client_queue: Queue = Queue()
+    with _lock:
+        _clients[session_id].add(client_queue)
+    try:
+        session = QueueSession.query.get(session_id)
+        if session:
+            ws.send(json.dumps(serialize_session(session)))
+        while True:
+            payload = client_queue.get(timeout=25)
+            ws.send(json.dumps(payload, ensure_ascii=False, default=str))
+    except Exception:
+        pass
+    finally:
+        with _lock:
+            _clients[session_id].discard(client_queue)
+\end{lstlisting}
+
+На клиентской стороне JavaScript (файл \texttt{static/js/main.js}) при загрузке страницы очереди устанавливает WebSocket-соединение. При получении сообщения типа \texttt{"snapshot"} таблица очереди перерисовывается. Для браузеров, не поддерживающих WebSocket, или в случае разрыва соединения предусмотрен резервный механизм периодического опроса через API-маршрут \texttt{/api/sessions/<id>/snapshot} (листинг~\ref{lst:api_snapshot}).
+
+\begin{lstlisting}[caption={REST-совместимый снимок очереди (api.py)}, label={lst:api_snapshot}]
+@api_bp.route("/sessions/<int:session_id>/snapshot")
+@login_required
+def session_snapshot(session_id: int):
+    session = QueueSession.query.get_or_404(session_id)
+    return jsonify(serialize_session(session))
+\end{lstlisting}
+
+Таким образом, достигнута синхронизация состояния очереди в реальном времени, что критически важно для удобства работы преподавателя и студентов в ходе занятия.

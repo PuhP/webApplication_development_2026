@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}{{ session.title }}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow">{{ session.subject.name }} · {{ session.group.name }}</p>
+    <h1>{{ session.title }}</h1>
+    <p class="muted">Начало: {{ session.starts_at.strftime('%d.%m.%Y %H:%M') }} · статус: {{ session.status_title }}</p>
+    <p class="muted small">Лабораторных по дисциплине: {{ session.subject.lab_count }} · среднее время: {{ session.subject.minutes_per_lab }} мин.</p>
+  </div>
+  <div class="actions">
+    <a class="btn btn-secondary" href="{{ url_for('main.queue_report_csv', session_id=session.id) }}">CSV очереди</a>
+    {% if current_user.role in ['teacher', 'admin'] %}
+      <form method="post" action="{{ url_for('main.call_next', session_id=session.id) }}"><button class="btn" type="submit">Вызвать следующего</button></form>
+    {% endif %}
+  </div>
+</div>
+
+<section class="card">
+  <div class="card-head">
+    <h2>Текущая очередь</h2>
+    <span class="live-indicator" data-live-indicator>Подключение...</span>
+  </div>
+  <div id="queue-table" data-session-id="{{ session.id }}">
+    {% include 'partials/_queue_table.html' %}
+  </div>
+</section>
+
+{% if current_user.role in ['student', 'admin'] and session.is_active %}
+<section class="card">
+  <h2>{% if active_entry %}Вы уже записаны{% else %}Записаться в очередь{% endif %}</h2>
+  {% if not active_entry %}
+    <form method="post" action="{{ url_for('main.join_queue', session_id=session.id) }}" class="form grid-form compact">
+      <label>
+        Номер лабораторной
+        <input type="number" name="lab_number" min="1" max="{{ session.subject.lab_count }}" value="1" required>
+        <span class="muted small">от 1 до {{ session.subject.lab_count }}</span>
+      </label>
+      <label>
+        Сколько работ хотите сдать
+        <input type="number" name="work_count" min="1" max="{{ session.subject.lab_count }}" value="1" required id="work-count-input">
+        <span class="muted small">не более {{ session.subject.lab_count }}</span>
+      </label>
+      <label>Предпочтение времени
+        <select name="time_preference">
+          <option value="any">Без разницы</option>
+          <option value="early">Чуть раньше</option>
+          <option value="later">Чуть позже</option>
+        </select>
+      </label>
+      <label>
+        Примерное время на работу, мин.
+        <input type="number" name="estimated_minutes" min="1" max="180" value="{{ session.subject.minutes_per_lab }}" required>
+        <span class="muted small">от 1 до 180 мин.</span>
+      </label>
+      <label class="full">Комментарий<input type="text" name="note" placeholder="Например: нужен быстрый повторный показ" maxlength="300"></label>
+      <button class="btn" type="submit">Встать в очередь</button>
+    </form>
+  {% else %}
+    <div class="inline-actions">
+      <form method="post" action="{{ url_for('main.confirm_entry', entry_id=active_entry.id) }}"><button class="btn" type="submit">Подтвердить присутствие</button></form>
+      <form method="post" action="{{ url_for('main.leave_queue', entry_id=active_entry.id) }}"><button class="btn btn-danger" type="submit">Выйти из очереди</button></form>
+    </div>
+  {% endif %}
+</section>
+{% endif %}
+{% endblock %}

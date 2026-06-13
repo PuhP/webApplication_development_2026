@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}QueueLab — управление студенческими очередями{% endblock %}
+{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">Курсовая работа · Разработка веб-приложений</p>
+    <h1>Веб-приложение для управления очередями студентов</h1>
+    <p class="lead">Регистрация и авторизация, роли «Студент», «Преподаватель» и «Администратор», FIFO-очередь с подтверждением присутствия, журнал успеваемости и выгрузка отчетов.</p>
+    <div class="hero-actions">
+      <a class="btn" href="{{ url_for('auth.login') }}">Войти</a>
+      <a class="btn btn-secondary" href="{{ url_for('auth.register') }}">Создать аккаунт</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <h2>Демо-аккаунты</h2>
+    <p><strong>Администратор:</strong> admin@example.com / admin1234</p>
+    <p><strong>Преподаватель:</strong> teacher@example.com / teacher1234</p>
+    <p><strong>Студент:</strong> student@example.com / student1234</p>
+  </div>
+</section>
+
+<section class="grid three">
+  <article class="card"><h3>Студент</h3><p>Записывается в очередь, подтверждает присутствие, загружает работы и отслеживает свои оценки.</p></article>
+  <article class="card"><h3>Преподаватель</h3><p>Вызывает студентов, фиксирует результат защиты и ведет журнал успеваемости.</p></article>
+  <article class="card"><h3>Администратор</h3><p>Создает группы, управляет пользователями и помогает модерировать очередь на занятии.</p></article>
+</section>
+{% endblock %}

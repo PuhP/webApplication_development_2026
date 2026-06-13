@@ -30,9 +30,23 @@
   <input type="hidden" name="action" value="subject">
   <label>Название<input name="name" required></label>
   <label>Группа<select name="group_id">...</select></label>
+  <label>Преподаватель<select name="teacher_id">...</select></label>
+  <label>Количество лабораторных работ
+    <input type="number" name="lab_count" min="1" max="30" value="10" required>
+  </label>
+  <label>Минут на каждую лабораторную
+    <input type="number" name="minutes_per_lab" min="1" max="120" value="15" required>
+  </label>
   <button class="btn" type="submit">Создать</button>
 </form>
 \end{lstlisting}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{screen_teacher_sessions}
+    \caption{Страница преподавателя: форма создания дисциплины и список очередей}
+    \label{fig:screen_teacher}
+\end{figure}
 
 Административные шаблоны используют аналогичный подход; например, \texttt{admin\_users.html} через \texttt{<select>} позволяет назначить роль и группу. Все операции над пользователями и группами защищены декоратором \texttt{@role\_required("admin")} (см. листинг~\ref{lst:role_decorator}).
 
@@ -51,13 +65,23 @@
       <option value="later">Позже</option>
     </select>
   </label>
-  <label>Примерное время (мин)<input type="number" name="estimated_minutes" value="10" required></label>
+  <label>Примерное время (мин)
+    <input type="number" name="estimated_minutes"
+           value="{{ session.subject.minutes_per_lab }}" required>
+  </label>
   <label>Комментарий<input type="text" name="note"></label>
   <button class="btn" type="submit">Встать в очередь</button>
 </form>
 \end{lstlisting}
 
 Логика очереди реализована на сервере в модуле \texttt{queue\_service.py} и описана в подразделе 3.3.1. Для обновления очереди в реальном времени используется WebSocket (см. \texttt{realtime.py}), который отправляет клиентам актуальное состояние после каждого изменения (добавление, удаление, вызов студента). На клиентской стороне JavaScript подключается к сокету \texttt{/ws/session/<id>} и динамически обновляет таблицу.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{screen_student_dashboard}
+    \caption{Главная страница студента: список доступных сессий для записи в очередь}
+    \label{fig:screen_dashboard}
+\end{figure}
 
 \subsection{Реализация модуля авторизации и разграничения прав доступа}
 
@@ -77,6 +101,20 @@ db.session.add(user)
 db.session.commit()
 login_user(user)
 \end{lstlisting}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.75\textwidth]{screen_register}
+    \caption{Страница регистрации: выбор роли и ввод пригласительного кода}
+    \label{fig:screen_register}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.75\textwidth]{screen_login}
+    \caption{Страница входа в систему}
+    \label{fig:screen_login}
+\end{figure}
 
 Вход выполняется через маршрут \texttt{/login} (листинг~\ref{lst:login}), который проверяет email и пароль, после чего вызывает \texttt{login\_user}. Выход — \texttt{/logout} с удалением сессии. Преподаватели и студенты после входа перенаправляются на \texttt{dashboard}.
 
@@ -120,6 +158,13 @@ def role_required(*roles: str):
     \item \textbf{Перемещение записи}: POST \texttt{/entries/<id>/move/<direction>} — меняет позиции двух соседних записей.
     \item \textbf{Завершение проверки}: POST \texttt{/entries/<id>/pass} — сохраняет оценку в \texttt{GradeRecord}, меняет статус на \texttt{passed} и пересчитывает позиции.
 \end{itemize}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{screen_queue_detail}
+    \caption{Страница активной очереди: список участников с кнопками управления}
+    \label{fig:screen_queue}
+\end{figure}
 
 Логика очереди реализована в \texttt{queue\_service.py}. Для гарантии FIFO-порядка используется поле \texttt{position}, которое пересчитывается функцией \texttt{normalize\_positions} (листинг~\ref{lst:normalize}).
 
@@ -188,6 +233,13 @@ upload = WorkUpload(
 db.session.add(upload)
 \end{lstlisting}
 
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{screen_profile_upload}
+    \caption{Страница профиля студента: форма загрузки файла лабораторной работы}
+    \label{fig:screen_upload}
+\end{figure}
+
 \textbf{Выгрузка отчётов:} для преподавателя и администратора доступны два CSV-отчёта:
 
 \begin{itemize}
@@ -198,14 +250,17 @@ db.session.add(upload)
 Генерация CSV выполняется через модуль \texttt{csv} и возвращается как \texttt{Response} с типом \texttt{text/csv}. Пример формирования отчёта очереди приведён в листинге~\ref{lst:csv_report}.
 
 \begin{lstlisting}[caption={Генерация CSV-отчёта очереди}, label={lst:csv_report}]
-output = StringIO()
-writer = csv.writer(output, delimiter=";")
-writer.writerow(["Позиция", "Студент", "Лабораторная", "Кол-во работ", "Предпочтение", "Время", "Подтвержден", "Статус"])
+output = StringIO(newline="")
+output.write("sep=;\r\n")  # директива Excel: разделитель — точка с запятой
+writer = csv.writer(output, delimiter=";", lineterminator="\r\n")
+writer.writerow(["Позиция", "Студент", "Лабораторная", "Кол-во работ",
+                 "Предпочтение", "Время", "Подтвержден", "Статус"])
 for entry in session.entries:
     writer.writerow([entry.position, entry.student.full_name, entry.lab_number,
                      entry.work_count, entry.preference_title, entry.estimated_minutes,
                      "да" if entry.is_confirmed else "нет", entry.status_title])
-return Response(output.getvalue(), mimetype="text/csv; charset=utf-8",
+csv_bytes = ("﻿" + output.getvalue()).encode("utf-8")  # BOM для Excel
+return Response(csv_bytes, mimetype="text/csv; charset=utf-8",
                 headers={"Content-Disposition": f"attachment; filename=queue_{session.id}.csv"})
 \end{lstlisting}
 
@@ -223,24 +278,47 @@ return Response(output.getvalue(), mimetype="text/csv; charset=utf-8",
 
 Пример CSS-класса для карточек очереди (листинг~\ref{lst:css_card}) демонстрирует адаптивные свойства: \texttt{flex} или \texttt{grid}, скругление, тень.
 
-\begin{lstlisting}[caption={CSS-стили для карточек очереди}, label={lst:css_card}]
+\begin{lstlisting}[caption={CSS-стили для карточек и адаптивных таблиц}, label={lst:css_card}]
 .card {
-    background: var(--card-bg);
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    padding: 1.5rem;
-    transition: box-shadow 0.2s;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    padding: 24px;
 }
-@media (max-width: 640px) {
-    .grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+@media (max-width: 820px) {
+    .hero, .grid.two, .grid.three { grid-template-columns: 1fr; }
+    /* Адаптивные таблицы: карточки вместо горизонтальной прокрутки */
+    .table-wrap { overflow-x: visible; border: none; }
+    .table-wrap thead { display: none; }
+    .table-wrap tr {
+        display: block;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        margin-bottom: 12px;
     }
-    .table-wrap {
-        overflow-x: auto;
+    .table-wrap td[data-label]::before {
+        content: attr(data-label);
+        font-weight: 700;
+        font-size: .78rem;
+        text-transform: uppercase;
     }
 }
 \end{lstlisting}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{screen_queue_desktop}
+    \caption{Страница очереди на широком экране: таблица с полным набором столбцов}
+    \label{fig:screen_desktop}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth, height=0.65\textheight, keepaspectratio]{screen_queue_mobile}
+    \caption{Страница очереди на мобильном устройстве (ширина экрана $\leq$820px): карточный вид}
+    \label{fig:screen_mobile}
+\end{figure}
 
 Навигационное меню в \texttt{base.html} содержит кнопку-гамбургер и JavaScript-обработчик для адаптивного отображения на мобильных устройствах. Все интерактивные элементы (кнопки, формы) имеют достаточный размер для удобного нажатия пальцем.
 
@@ -249,7 +327,7 @@ return Response(output.getvalue(), mimetype="text/csv; charset=utf-8",
 
 \subsection{Реализация WebSocket-обновления очереди в реальном времени}
 
-Для обеспечения синхронного отображения очереди у всех подключённых пользователей (студентов, преподавателя, администратора) реализован механизм реального времени на базе протокола \textbf{WebSocket} с использованием библиотеки \textit{Flask-Sock}. При изменении состояния очереди (добавление, удаление, перемещение, вызов студента) сервер инициирует широковещательную рассылку актуальных данных всем клиентам, подписанным на данную сессию.
+Для обеспечения синхронного отображения очереди у всех подключённых пользователей (студентов, преподавателя, администратора) реализован механизм реального времени на базе протокола \textbf{WebSocket} с использованием библиотеки \textit{Flask-Sock}~\cite{flask_docs}. При изменении состояния очереди (добавление, удаление, перемещение, вызов студента) сервер инициирует широковещательную рассылку актуальных данных всем клиентам, подписанным на данную сессию.
 
 Схема работы представлена на листинге~\ref{lst:websocket_broadcast}. Функция \texttt{broadcast\_session\_update} сериализует текущее состояние очереди с помощью \texttt{serialize\_session} (определена в \texttt{queue\_service.py}) и отправляет его во все клиентские очереди, зарегистрированные для указанного \texttt{session\_id}.
 
